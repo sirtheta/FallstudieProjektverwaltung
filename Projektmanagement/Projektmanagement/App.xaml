@@ -1,0 +1,13 @@
+﻿<Application x:Class="Projektmanagement.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Projektmanagement"
+             xmlns:views="clr-namespace:Projektmanagement.Views"
+             xmlns:viewmodels="clr-namespace:Projektmanagement.ViewModels"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+            <views:HomeView/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
