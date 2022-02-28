@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Projektmanagement.ViewModels
 {
   internal class HomeViewModel : BaseViewModel
-  {// HomeVie
+  {
 
   }
 }
