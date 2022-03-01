@@ -3,19 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Projektmanagement"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        xmlns:local="clr-namespace:Projektmanagement" 
+        xmlns:viewmodels="clr-namespace:Projektmanagement.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>          
-        
-        <ContentControl Content="{Binding SelectedViewModel}"/>
-        
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Margin="10" Width="200" Content="Home" Command="{Binding UpdateViewCommand}" CommandParameter="Home"/>
-        </StackPanel>        
-    </Grid>
+        Title="Project Planning App" Height="450" Width="800"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="15"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto" >
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="50"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <!--HomeButton-->
+    <Button x:Name="btnHome" fa5:Awesome.Content="Solid_Home" Command="{Binding UpdateViewCommand}" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" FontSize="35" Height="50" Width="50"/>
+    <!--SettingsButton-->
+    <Button x:Name="btnSettings" fa5:Awesome.Content="Solid_UserCog" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Right" FontSize="30" Height="50" Width="50"/>
+
+    <ContentControl Content="{Binding SelectedViewModel}" Grid.Row="1"/>
+
+  </Grid>
 </Window>
