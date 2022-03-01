@@ -1,10 +1,7 @@
-﻿using Projektmanagement.Commands;
-using Projektmanagement.Services;
-using System.Windows.Input;
-
-namespace Projektmanagement.ViewModels
+﻿namespace Projektmanagement.ViewModels
 {
   internal class HomeViewModel : BaseViewModel
   {
+
   }
 }

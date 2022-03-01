@@ -5,11 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa5="http://schemas.fontawesome.com/icons/"
         xmlns:local="clr-namespace:Projektmanagement" 
-        xmlns:views="clr-namespace:Projektmanagement.Views"
-        xmlns:vms="clr-namespace:Projektmanagement.ViewModels"
+        xmlns:viewmodels="clr-namespace:Projektmanagement.ViewModels"
         mc:Ignorable="d"
-        Title="Project Planning App" Height="650" Width="900"
-        d:DataContext="{d:DesignInstance Type=vms:MainViewModel}"
+        Title="Project Planning App" Height="450" Width="800"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -18,25 +17,17 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto">
   <Grid>
-    <Grid.Resources>
-      <DataTemplate DataType="{x:Type vms:HomeViewModel}">
-        <views:HomeView />
-      </DataTemplate>
-      <DataTemplate DataType="{x:Type vms:SettingsViewModel}">
-        <views:SettingsView />
-      </DataTemplate>
-    </Grid.Resources>
     <Grid.RowDefinitions>
       <RowDefinition Height="50"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
     <!--HomeButton-->
-    <Button x:Name="btnHome" fa5:Awesome.Content="Solid_Home" Command="{Binding NavigateHomeCommand}" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" FontSize="35" Height="50" Width="50"/>
+    <Button x:Name="btnHome" fa5:Awesome.Content="Solid_Home" Command="{Binding HomeButtonCommand}" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" FontSize="35" Height="50" Width="50"/>
     <!--SettingsButton-->
-    <Button x:Name="btnSettings" Command="{Binding NavigateSettingsCommand}" fa5:Awesome.Content="Solid_UserCog" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Right" FontSize="30" Height="50" Width="50"/>
+    <Button x:Name="btnSettings" fa5:Awesome.Content="Solid_UserCog" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Right" FontSize="30" Height="50" Width="50"/>
 
-    <ContentControl Content="{Binding CurrentViewModel}" Grid.Row="1"/>
+    <ContentControl Content="{Binding SelectedViewModel}" Grid.Row="1"/>
 
   </Grid>
 </Window>
