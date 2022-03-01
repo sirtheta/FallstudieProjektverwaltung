@@ -1,37 +1,53 @@
-﻿using Projektmanagement.ViewModels;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Projektmanagement.Commands
 {
-  internal class UpdateViewCommand : ICommand
+  internal class UpdateViewCommand<T> : ICommand
   {
 
-    private MainViewModel viewModel;
+    #region Members
+    readonly Action<T> _Execute = null;
+    readonly Predicate<T> _CanExecute = null;
+    #endregion
 
-    public UpdateViewCommand(MainViewModel viewModel)
+
+    #region Constructors
+    public UpdateViewCommand(Action<T> Execute) : this(Execute, null) { }
+
+    /// <summary>
+    /// Creates a new command
+    /// </summary>
+    /// <param name="Execute">Execution logic</param>
+    /// <param name="CanExecute">Execution status logic</param>
+    public UpdateViewCommand(Action<T> Execute, Predicate<T> CanExecute)
     {
-      this.viewModel = viewModel;
+      _Execute = Execute ?? throw new ArgumentNullException("Execute");
+      _CanExecute = CanExecute;
     }
+    #endregion
 
-    public event EventHandler CanExecuteChanged;
 
-    public bool CanExecute(object parameter)
+    #region ICommand Members
+    //[DebuggerStepThrough]
+    public bool CanExecute(object Parameter) => _CanExecute == null ? true : _CanExecute((T)Parameter);
+
+
+    public event EventHandler CanExecuteChanged
     {
-      return true;
-    }
-
-    public void Execute(object parameter)
-    {
-      if (parameter.ToString() == "Home")
+      add
       {
-        viewModel.SelectedViewModel = new HomeViewModel();
+        CommandManager.RequerySuggested += value;
+      }
+      remove
+      {
+        CommandManager.RequerySuggested -= value;
       }
     }
+
+    public void Execute(object Parameter) => _Execute((T)Parameter);
+    #endregion
+
   }
 }

@@ -11,7 +11,8 @@ namespace Projektmanagement.ViewModels
   internal class MainViewModel : BaseViewModel
   {
 
-    private BaseViewModel _selectedViewModel;
+    private BaseViewModel? _selectedViewModel;
+
     public BaseViewModel SelectedViewModel
     {
       get { return _selectedViewModel; }
@@ -22,11 +23,12 @@ namespace Projektmanagement.ViewModels
       }
     }
 
-    public ICommand UpdateViewCommand { get; set; }
+    public ICommand UpdateViewCommand { get => new UpdateViewCommand<object>(OnHomeButtonClicked);}
+    
 
-    public MainViewModel()
+    private void OnHomeButtonClicked(object Parameter) 
     {
-      UpdateViewCommand = new UpdateViewCommand(this);
+      SelectedViewModel = new HomeViewModel();
     }
   }
 }
