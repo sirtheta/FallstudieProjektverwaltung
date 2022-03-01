@@ -1,33 +1,44 @@
 ﻿using System.Windows.Input;
 using Projektmanagement.Commands;
+using Projektmanagement.Services;
+using Projektmanagement.Stores;
 
 namespace Projektmanagement.ViewModels
 {
   internal class MainViewModel : BaseViewModel
   {
 
-    private BaseViewModel? _selectedViewModel;
+    private readonly NavigationStore _navigationStore;
+    private readonly ModalNavigationStore _modalNavigationStore;
 
-    public BaseViewModel SelectedViewModel {
-      get {
-        return _selectedViewModel;
-      }
-      set {
-        _selectedViewModel = value;
-        OnPropertyChanged(nameof(SelectedViewModel));
-      }
-    }
+    public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
+    public BaseViewModel CurrentModalViewModel => _modalNavigationStore.CurrentViewModel;
+    public bool IsOpen => _modalNavigationStore.IsOpen;
 
-    public ICommand HomeButtonCommand {
-      get {
-        return new UpdateViewCommand<object>(OnHomeButtonClicked);
-      }
-    }
-
-
-    private void OnHomeButtonClicked(object Parameter)
+    public MainViewModel(NavigationStore navigationStore, ModalNavigationStore modalNavigationStore)
     {
-      SelectedViewModel = new HomeViewModel();
+      _navigationStore = navigationStore;
+      _modalNavigationStore = modalNavigationStore;
+
+      _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+      _modalNavigationStore.CurrentViewModelChanged += OnCurrentModalViewModelChanged;
+    }
+
+    private void OnCurrentViewModelChanged()
+    {
+      OnPropertyChanged(nameof(CurrentViewModel));
+    }
+
+    private void OnCurrentModalViewModelChanged()
+    {
+      OnPropertyChanged(nameof(CurrentModalViewModel));
+      OnPropertyChanged(nameof(IsOpen));
+    }
+    public ICommand NavigateHomeCommand {
+      get;
+    }
+    public ICommand NavigateSettingsCommand {
+      get;
     }
   }
 }
