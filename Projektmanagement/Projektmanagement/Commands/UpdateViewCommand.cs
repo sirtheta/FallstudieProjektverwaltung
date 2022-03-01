@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows.Input;
 
 namespace Projektmanagement.Commands
@@ -34,14 +33,11 @@ namespace Projektmanagement.Commands
     public bool CanExecute(object Parameter) => _CanExecute == null ? true : _CanExecute((T)Parameter);
 
 
-    public event EventHandler CanExecuteChanged
-    {
-      add
-      {
+    public event EventHandler CanExecuteChanged {
+      add {
         CommandManager.RequerySuggested += value;
       }
-      remove
-      {
+      remove {
         CommandManager.RequerySuggested -= value;
       }
     }

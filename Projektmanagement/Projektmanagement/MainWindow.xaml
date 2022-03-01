@@ -15,7 +15,7 @@
         TextElement.FontWeight="Regular"
         TextElement.FontSize="15"
         TextOptions.TextFormattingMode="Ideal"
-        TextOptions.TextRenderingMode="Auto" >
+        TextOptions.TextRenderingMode="Auto">
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="50"/>
@@ -23,7 +23,7 @@
     </Grid.RowDefinitions>
 
     <!--HomeButton-->
-    <Button x:Name="btnHome" fa5:Awesome.Content="Solid_Home" Command="{Binding UpdateViewCommand}" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" FontSize="35" Height="50" Width="50"/>
+    <Button x:Name="btnHome" fa5:Awesome.Content="Solid_Home" Command="{Binding HomeButtonCommand}" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" FontSize="35" Height="50" Width="50"/>
     <!--SettingsButton-->
     <Button x:Name="btnSettings" fa5:Awesome.Content="Solid_UserCog" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Right" FontSize="30" Height="50" Width="50"/>
 

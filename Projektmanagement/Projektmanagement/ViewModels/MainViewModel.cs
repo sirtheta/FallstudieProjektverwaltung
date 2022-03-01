@@ -1,10 +1,5 @@
-﻿using Projektmanagement.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
+using Projektmanagement.Commands;
 
 namespace Projektmanagement.ViewModels
 {
@@ -13,20 +8,24 @@ namespace Projektmanagement.ViewModels
 
     private BaseViewModel? _selectedViewModel;
 
-    public BaseViewModel SelectedViewModel
-    {
-      get { return _selectedViewModel; }
-      set
-      {
+    public BaseViewModel SelectedViewModel {
+      get {
+        return _selectedViewModel;
+      }
+      set {
         _selectedViewModel = value;
         OnPropertyChanged(nameof(SelectedViewModel));
       }
     }
 
-    public ICommand UpdateViewCommand { get => new UpdateViewCommand<object>(OnHomeButtonClicked);}
-    
+    public ICommand HomeButtonCommand {
+      get {
+        return new UpdateViewCommand<object>(OnHomeButtonClicked);
+      }
+    }
 
-    private void OnHomeButtonClicked(object Parameter) 
+
+    private void OnHomeButtonClicked(object Parameter)
     {
       SelectedViewModel = new HomeViewModel();
     }
