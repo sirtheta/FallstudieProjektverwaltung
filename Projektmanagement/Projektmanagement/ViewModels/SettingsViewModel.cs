@@ -4,7 +4,8 @@ using System.Windows.Input;
 
 namespace Projektmanagement.ViewModels
 {
-  internal class HomeViewModel : BaseViewModel
+  internal class SettingsViewModel : BaseViewModel
   {
+
   }
 }
