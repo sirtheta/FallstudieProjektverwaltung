@@ -6,6 +6,7 @@ namespace Projektmanagement.ViewModels
   internal class HomeViewModel : BaseViewModel
   {
     #region Singleton
+    // returns thread safe singleton
     private static HomeViewModel? instance = null;
     private static readonly object padlock = new();
 
@@ -26,7 +27,7 @@ namespace Projektmanagement.ViewModels
     #endregion
 
     private string _labelText = "HomeView";
-    private string _textBoxText;
+    private string _textBoxText = "";
 
 
     public string LabelText {

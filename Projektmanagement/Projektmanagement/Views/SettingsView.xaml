@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projektmanagement.Views"
              mc:Ignorable="d" 
-             Background="Blue"
+             Background="LightGreen"
              d:DesignWidth="750"
              d:DesignHeight="450">
   <Grid>
