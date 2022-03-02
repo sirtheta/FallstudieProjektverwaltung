@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace Projektmanagement.Commands
 {
-  internal class UpdateViewCommand<T> : ICommand
+  internal class RelayCommand<T> : ICommand
   {
 
     #region Members
@@ -15,14 +15,14 @@ namespace Projektmanagement.Commands
 
     #region Constructors
 #pragma warning disable CS8767 // Nullability of reference types in type of parameter doesn't match implicitly implemented member (possibly because of nullability attributes).
-    public UpdateViewCommand(Action<T> Execute) : this(Execute, CanExecute: null) { }
+    public RelayCommand(Action<T> Execute) : this(Execute, CanExecute: null) { }
 
     /// <summary>
     /// Creates a new command
     /// </summary>
     /// <param name="Execute">Execution logic</param>
     /// <param name="CanExecute">Execution status logic</param>
-    public UpdateViewCommand(Action<T> Execute, Predicate<T> CanExecute)
+    public RelayCommand(Action<T> Execute, Predicate<T> CanExecute)
     {
       _Execute = Execute ?? throw new ArgumentNullException("Execute");
       _CanExecute = CanExecute;

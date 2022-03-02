@@ -3,15 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Projektmanagement.Views"
              mc:Ignorable="d" 
              Background="Blue"
              d:DesignWidth="750"
              d:DesignHeight="450">
   <Grid>
-    <Label Content="HomeView" HorizontalAlignment="Left"  Margin="10" VerticalAlignment="Top"/>
-    <Label Content="HomeView" HorizontalAlignment="Left"  Margin="10" VerticalAlignment="Bottom"/>
-    <Label Content="HomeView" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Top"/>
-    <Label Content="HomeView" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Bottom"/>
+    <Label  x:Name="lblTopLeft"     Content="{Binding LabelText}"  HorizontalAlignment="Left"  Margin="10" VerticalAlignment="Top"/>
+    <Label  x:Name="lblBottomLeft"  Content="{Binding LabelText}"  HorizontalAlignment="Left"  Margin="10" VerticalAlignment="Bottom"/>
+    <Label  x:Name="lblTopRight"    Content="{Binding LabelText}"  HorizontalAlignment="Right" Margin="10" VerticalAlignment="Top"/>
+    <Label  x:Name="lblBottomRight" Content="{Binding LabelText}"  HorizontalAlignment="Right" Margin="10" VerticalAlignment="Bottom"/>
+    <TextBox x:Name="txtBox"        Text="{Binding TextBoxText}"   HorizontalAlignment="Right" Margin="0,100,200,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" materialDesign:HintAssist.Hint="Put your Text here" />
+    <Button x:Name="btnTest"        Command="{Binding BtnTestCommand}" Content="Aply Text To Label" HorizontalAlignment="Right" Margin="0,200,200,0" VerticalAlignment="Top"/>
   </Grid>
 </UserControl>

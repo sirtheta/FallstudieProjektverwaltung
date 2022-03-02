@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
+
 namespace Projektmanagement.ViewModels
 {
-  internal class BaseViewModel : INotifyPropertyChanged
+  internal abstract class BaseViewModel : INotifyPropertyChanged
   {
     public event PropertyChangedEventHandler? PropertyChanged;
 

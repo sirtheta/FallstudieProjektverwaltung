@@ -26,12 +26,12 @@ namespace Projektmanagement.ViewModels
 
     public ICommand HomeButtonCommand {
       get {
-        return new UpdateViewCommand<object>(OnHomeButtonClicked);
+        return new RelayCommand<object>(OnHomeButtonClicked);
       }
     }
     public ICommand SettingsButtonCommand {
       get {
-        return new UpdateViewCommand<object>(OnSettingsButtonClicked);
+        return new RelayCommand<object>(OnSettingsButtonClicked);
       }
     }
 

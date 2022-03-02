@@ -8,6 +8,7 @@ namespace Projektmanagement.ViewModels
 {
   internal class SettingsViewModel : BaseViewModel
   {
+    #region Singleton
     private static SettingsViewModel? instance = null;
     private static readonly object padlock = new();
 
@@ -25,5 +26,6 @@ namespace Projektmanagement.ViewModels
         }
       }
     }
+    #endregion
   }
 }
