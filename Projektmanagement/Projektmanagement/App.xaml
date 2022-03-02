@@ -3,13 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Projektmanagement"
              xmlns:views="clr-namespace:Projektmanagement.Views"
-             xmlns:viewmodels="clr-namespace:Projektmanagement.ViewModels"
-             StartupUri="MainWindow.xaml">
+             xmlns:viewmodels="clr-namespace:Projektmanagement.ViewModels">
     <Application.Resources>
     <ResourceDictionary>
         <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
             <views:HomeView/>
         </DataTemplate>
+      <DataTemplate DataType="{x:Type viewmodels:SettingsViewModel}">
+        <views:SettingsView/>
+      </DataTemplate>
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />

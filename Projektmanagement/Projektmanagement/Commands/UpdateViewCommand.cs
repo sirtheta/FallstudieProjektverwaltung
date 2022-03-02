@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Input;
 
 namespace Projektmanagement.Commands
@@ -7,13 +8,14 @@ namespace Projektmanagement.Commands
   {
 
     #region Members
-    readonly Action<T> _Execute = null;
-    readonly Predicate<T> _CanExecute = null;
+    readonly Action<T>? _Execute = null;
+    readonly Predicate<T>? _CanExecute = null;
     #endregion
 
 
     #region Constructors
-    public UpdateViewCommand(Action<T> Execute) : this(Execute, null) { }
+#pragma warning disable CS8767 // Nullability of reference types in type of parameter doesn't match implicitly implemented member (possibly because of nullability attributes).
+    public UpdateViewCommand(Action<T> Execute) : this(Execute, CanExecute: null) { }
 
     /// <summary>
     /// Creates a new command
@@ -29,11 +31,11 @@ namespace Projektmanagement.Commands
 
 
     #region ICommand Members
-    //[DebuggerStepThrough]
+    [DebuggerStepThrough]
     public bool CanExecute(object Parameter) => _CanExecute == null ? true : _CanExecute((T)Parameter);
 
 
-    public event EventHandler CanExecuteChanged {
+    public event EventHandler? CanExecuteChanged {
       add {
         CommandManager.RequerySuggested += value;
       }
@@ -42,8 +44,12 @@ namespace Projektmanagement.Commands
       }
     }
 
-    public void Execute(object Parameter) => _Execute((T)Parameter);
+    public void Execute(object Parameter)
+    {
+      _Execute?.Invoke((T)Parameter);
+    }
     #endregion
+#pragma warning restore CS8767 // Nullability of reference types in type of parameter doesn't match implicitly implemented member (possibly because of nullability attributes).
 
   }
 }
