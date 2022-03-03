@@ -11,7 +11,7 @@ namespace Projektmanagement.ViewModels
     #region Singleton
     // returns thread safe singleton
     private static SettingsViewModel? instance = null;
-    private static readonly object padlock = new();
+    private readonly static object padlock = new();
 
     protected SettingsViewModel()
     {

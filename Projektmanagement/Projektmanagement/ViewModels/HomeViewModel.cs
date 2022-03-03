@@ -11,7 +11,9 @@ namespace Projektmanagement.ViewModels
     private static readonly object padlock = new();
 
     protected HomeViewModel()
+
     {
+      LabelText = "Home View";
     }
 
     public static HomeViewModel GetInstance {
@@ -26,7 +28,7 @@ namespace Projektmanagement.ViewModels
     }
     #endregion
 
-    private string _labelText = "HomeView";
+    private string _labelText = "";
     private string _textBoxText = "";
 
 
@@ -59,8 +61,7 @@ namespace Projektmanagement.ViewModels
 
     private void ExecuteBtnTestCommand(object Parameter)
     {
-      TextBoxText = _textBoxText;
-      LabelText = _textBoxText;
+      LabelText = TextBoxText;
 
       TextBoxText = "";
     }
