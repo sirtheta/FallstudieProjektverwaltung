@@ -10,10 +10,10 @@ namespace Projektmanagement
   {
     protected override void OnStartup(StartupEventArgs e)
     {
-      HomeViewModel _HomeViewModel = HomeViewModel.GetInstance;
+      HomeViewModel homeViewModel = HomeViewModel.GetInstance;
 
       MainWindow = new MainWindow() {
-        DataContext = new MainViewModel(_HomeViewModel)
+        DataContext = new MainViewModel(homeViewModel)
       };
 
       MainWindow.Show();

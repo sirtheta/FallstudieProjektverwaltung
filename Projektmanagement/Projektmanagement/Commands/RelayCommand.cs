@@ -8,8 +8,8 @@ namespace Projektmanagement.Commands
   {
 
     #region Members
-    readonly Action<T>? _Execute = null;
-    readonly Predicate<T>? _CanExecute = null;
+    private readonly Action<T>? _Execute = null;
+    private readonly Predicate<T>? _CanExecute = null;
     #endregion
 
 
@@ -24,7 +24,7 @@ namespace Projektmanagement.Commands
     /// <param name="CanExecute">Execution status logic</param>
     public RelayCommand(Action<T> Execute, Predicate<T> CanExecute)
     {
-      _Execute = Execute ?? throw new ArgumentNullException("Execute");
+      _Execute = Execute ?? throw new ArgumentNullException(nameof(Execute));
       _CanExecute = CanExecute;
     }
     #endregion
@@ -32,8 +32,10 @@ namespace Projektmanagement.Commands
 
     #region ICommand Members
     [DebuggerStepThrough]
-    public bool CanExecute(object Parameter) => _CanExecute == null ? true : _CanExecute((T)Parameter);
-
+    public bool CanExecute(object Parameter)
+    {
+      return _CanExecute == null || _CanExecute((T)Parameter);
+    }
 
     public event EventHandler? CanExecuteChanged {
       add {
