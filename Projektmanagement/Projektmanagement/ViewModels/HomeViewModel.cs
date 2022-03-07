@@ -1,5 +1,7 @@
 ﻿using System.Windows.Input;
+using System.Collections.Generic;
 using Projektmanagement.Commands;
+using Projektmanagement.MainClasses;
 
 namespace Projektmanagement.ViewModels
 {
@@ -30,6 +32,8 @@ namespace Projektmanagement.ViewModels
 
     private string _labelText = "";
     private string _textBoxText = "";
+
+    private List<Project> projects;
 
 
     public string LabelText {

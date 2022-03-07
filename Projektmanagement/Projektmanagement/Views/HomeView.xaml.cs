@@ -10,6 +10,9 @@ namespace Projektmanagement.Views
     public HomeView()
     {
       InitializeComponent();
+
+
+
     }
   }
 }
