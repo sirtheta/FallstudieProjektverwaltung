@@ -1,11 +1,12 @@
 ﻿using System.Windows.Input;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Projektmanagement.Commands;
 using Projektmanagement.MainClasses;
 
 namespace Projektmanagement.ViewModels
 {
-  internal class HomeViewModel : BaseViewModel
+  internal class HomeViewModel : BaseViewModel,INotifyPropertyChanged
   {
     #region Singleton
     // returns thread safe singleton
@@ -13,9 +14,17 @@ namespace Projektmanagement.ViewModels
     private static readonly object padlock = new();
 
     protected HomeViewModel()
-
     {
       LabelText = "Home View";
+
+      //generating sample projects for testing
+      projects = new List<Project>();
+      for(int i = 0; i < 5; i++) 
+      {
+        Projects.Add(new Project($"Test Projekt {i+1}"));
+      }
+
+
     }
 
     public static HomeViewModel GetInstance {
@@ -63,11 +72,23 @@ namespace Projektmanagement.ViewModels
       }
     }
 
+    public List<Project> Projects {
+      get {
+        return projects;
+      }
+
+      set {
+        projects = value;
+        OnPropertyChanged();
+      }
+    }
+
     private void ExecuteBtnTestCommand(object Parameter)
     {
       LabelText = TextBoxText;
 
       TextBoxText = "";
     }
+
   }
 }

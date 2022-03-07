@@ -8,14 +8,14 @@ namespace Projektmanagement.MainClasses
 {
   internal class Project
   {
-    //I ha das mau zum teschte gmacht... bitte gliich no vervouständige aber bitte dr name vom "Name"-getter biiphaute :)
-    private string name;
+    //I ha das mau zum teschte gmacht... bitte gliich no vervouständige aber bitte dr name vom "ProjectName"-getter biiphaute :)
+    private string projectName;
 
-    public Project(string name)
+    public Project(string projectName)
     {
-      this.name = name;
+      this.projectName = projectName;
     }
 
-    public string Name => name;
+    public string ProjectName => projectName;
   }
 }

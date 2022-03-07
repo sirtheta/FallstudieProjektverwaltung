@@ -4,17 +4,44 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:local="clr-namespace:Projektmanagement.Views"
+             xmlns:local ="clr-namespace:Projektmanagement.Views"
+             xmlns:vm="clr-namespace:Projektmanagement.ViewModels"
              mc:Ignorable="d" 
              Background="Blue"
              d:DesignWidth="750"
              d:DesignHeight="450">
-  <Grid>
-    <Label  x:Name="lblTopLeft"     Content="{Binding LabelText}"  HorizontalAlignment="Left"  Margin="10" VerticalAlignment="Top"/>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="0,10,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+            <ItemsControl ItemsSource="{Binding Projects}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Command="{Binding BtnTestCommand}" Content="{Binding ProjectName}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+  </Grid>
+</UserControl>
+
+
+<!--<Label  x:Name="lblTopLeft"     Content="{Binding LabelText}"  HorizontalAlignment="Left"  Margin="10" VerticalAlignment="Top"/>
     <Label  x:Name="lblBottomLeft"  Content="{Binding LabelText}"  HorizontalAlignment="Left"  Margin="10" VerticalAlignment="Bottom"/>
     <Label  x:Name="lblTopRight"    Content="{Binding LabelText}"  HorizontalAlignment="Right" Margin="10" VerticalAlignment="Top"/>
     <Label  x:Name="lblBottomRight" Content="{Binding LabelText}"  HorizontalAlignment="Right" Margin="10" VerticalAlignment="Bottom"/>
     <TextBox x:Name="txtBox"        Text="{Binding TextBoxText}"   HorizontalAlignment="Right" Margin="0,100,200,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" materialDesign:HintAssist.Hint="Put your Text here" />
-    <Button x:Name="btnTest"        Command="{Binding BtnTestCommand}" Content="Aply Text To Label" HorizontalAlignment="Right" Margin="0,200,200,0" VerticalAlignment="Top"/>
-  </Grid>
-</UserControl>
+    <Button x:Name="btnTest"        Command="{Binding BtnTestCommand}" Content="Aply Text To Label" HorizontalAlignment="Right" Margin="0,200,200,0" VerticalAlignment="Top"/>-->
+
