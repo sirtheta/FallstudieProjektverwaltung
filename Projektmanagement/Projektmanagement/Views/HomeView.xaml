@@ -20,6 +20,7 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <ScrollViewer Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Auto">
         <StackPanel Grid.Column="1" Grid.Row="1">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Button}">
@@ -34,7 +35,8 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </StackPanel>
-  </Grid>
+        </ScrollViewer>
+    </Grid>
 </UserControl>
 
 

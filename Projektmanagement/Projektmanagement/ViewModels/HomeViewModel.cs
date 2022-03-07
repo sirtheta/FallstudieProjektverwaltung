@@ -19,7 +19,7 @@ namespace Projektmanagement.ViewModels
 
       //generating sample projects for testing
       projects = new List<Project>();
-      for(int i = 0; i < 5; i++) 
+      for(int i = 0; i < 20; i++) 
       {
         Projects.Add(new Project($"Test Projekt {i+1}"));
       }
