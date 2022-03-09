@@ -6,7 +6,7 @@ using Projektmanagement.MainClasses;
 
 namespace Projektmanagement.ViewModels
 {
-  internal class HomeViewModel : BaseViewModel,INotifyPropertyChanged
+  internal class HomeViewModel : BaseViewModel
   {
     #region Singleton
     // returns thread safe singleton
