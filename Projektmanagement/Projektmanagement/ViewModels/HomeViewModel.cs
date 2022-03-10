@@ -1,5 +1,8 @@
 ﻿using System.Windows.Input;
+using System.Collections.Generic;
+using System.ComponentModel;
 using Projektmanagement.Commands;
+using Projektmanagement.MainClasses;
 
 namespace Projektmanagement.ViewModels
 {
@@ -11,9 +14,17 @@ namespace Projektmanagement.ViewModels
     private static readonly object padlock = new();
 
     protected HomeViewModel()
-
     {
       LabelText = "Home View";
+
+      //generating sample projects for testing
+      projects = new List<Project>();
+      for(int i = 0; i < 20; i++) 
+      {
+        Projects.Add(new Project($"Test Projekt {i+1}"));
+      }
+
+
     }
 
     public static HomeViewModel GetInstance {
@@ -30,6 +41,8 @@ namespace Projektmanagement.ViewModels
 
     private string _labelText = "";
     private string _textBoxText = "";
+
+    private List<Project> projects;
 
 
     public string LabelText {
@@ -59,11 +72,23 @@ namespace Projektmanagement.ViewModels
       }
     }
 
+    public List<Project> Projects {
+      get {
+        return projects;
+      }
+
+      set {
+        projects = value;
+        OnPropertyChanged();
+      }
+    }
+
     private void ExecuteBtnTestCommand(object Parameter)
     {
       LabelText = TextBoxText;
 
       TextBoxText = "";
     }
+
   }
 }

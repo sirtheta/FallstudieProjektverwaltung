@@ -1,4 +1,7 @@
 ﻿using System.Windows.Controls;
+using System.Collections.Generic;
+using Projektmanagement.MainClasses;
+using Projektmanagement.ViewModels;
 
 namespace Projektmanagement.Views
 {
@@ -7,8 +10,21 @@ namespace Projektmanagement.Views
   /// </summary>
   public partial class HomeView : UserControl
   {
+    HomeViewModel vm;
     public HomeView()
     {
+      InitializeComponent();
+      vm = HomeViewModel.GetInstance;
+      InitializeStackpanel();
+    }
+
+
+    private void InitializeStackpanel()
+    {
+      for(int i = 0; i < vm.Projects.Count; i++) 
+      {
+        ProjectStackpanel.Children.Add(new ProjectObjectView(vm.Projects[i].ProjectName));
+      }
       InitializeComponent();
     }
   }

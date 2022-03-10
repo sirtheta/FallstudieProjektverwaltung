@@ -22,7 +22,7 @@ namespace Projektmanagement.Commands
     /// </summary>
     /// <param name="Execute">Execution logic</param>
     /// <param name="CanExecute">Execution status logic</param>
-    public RelayCommand(Action<T> Execute, Predicate<T> CanExecute)
+    public RelayCommand(Action<T>? Execute, Predicate<T>? CanExecute)
     {
       _Execute = Execute ?? throw new ArgumentNullException(nameof(Execute));
       _CanExecute = CanExecute;
