@@ -8,13 +8,11 @@ namespace Projektmanagement.MainClasses
 /// </summary>
   internal class ProcessModel
   {
-    private string[] phaseNames;
-
-    public ProcessModel(string[] phaseNames)
+    public ProcessModel(string phaseNames)
     {
-      this.phaseNames = phaseNames;
+      PhaseNames = phaseNames;
     }
 
-    public string[] PhaseNames => phaseNames;
+    public string PhaseNames { get; }
   }
 }

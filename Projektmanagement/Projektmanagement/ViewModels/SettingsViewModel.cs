@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
+using Projektmanagement.Commands;
 
 namespace Projektmanagement.ViewModels
 {
@@ -27,6 +30,57 @@ namespace Projektmanagement.ViewModels
         }
       }
     }
+
     #endregion
+
+    private Visibility visibilityNewModell = Visibility.Hidden;
+    private Visibility visibilityNewEmployee = Visibility.Hidden;
+
+    public Visibility VisibilityNewProcessModel {
+      get {
+        return visibilityNewModell;
+      }
+
+      set {
+        visibilityNewModell = value;
+        OnPropertyChanged();
+      }
+    }
+
+    public Visibility VisibilityNewEmployee {
+      get {
+        return visibilityNewEmployee;
+      }
+
+      set {
+        visibilityNewEmployee = value;
+        OnPropertyChanged();
+      }
+    }
+
+    public ICommand BtnNewProcessModel {
+      get {
+        return new RelayCommand<object>(ExecuteBtnNewProcessModel);
+      }
+    }
+
+
+    public ICommand BtnNewEmployee {
+      get {
+        return new RelayCommand<object>(ExecuteBtnNewEmployee);
+      }
+    }
+
+    private void ExecuteBtnNewProcessModel(object Parameter)
+    {
+      VisibilityNewEmployee = Visibility.Hidden;
+      VisibilityNewProcessModel = Visibility.Visible;
+    }
+
+    private void ExecuteBtnNewEmployee(object Parameter)
+    {
+      VisibilityNewProcessModel = Visibility.Hidden;
+      VisibilityNewEmployee = Visibility.Visible;
+    }
   }
 }

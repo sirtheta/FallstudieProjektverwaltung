@@ -4,14 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projektmanagement.Views"
+             xmlns:uc="clr-namespace:Projektmanagement.Views"
              mc:Ignorable="d" 
-             Background="LightGreen"
+             Background="WhiteSmoke"
              d:DesignWidth="750"
              d:DesignHeight="450">
   <Grid>
-    <Label Content="Settings" HorizontalAlignment="Left"  Margin="10" VerticalAlignment="Top"/>
-    <Label Content="Settings" HorizontalAlignment="Left"  Margin="10" VerticalAlignment="Bottom"/>
-    <Label Content="Settings" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Top"/>
-    <Label Content="Settings" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Bottom"/>
+    <Button x:Name="btnNewModell" Command="{Binding BtnNewProcessModel}" Content="Neues Vorgehensmodell" HorizontalAlignment="Right" Margin="0,35,29,0" VerticalAlignment="Top"/>
+    <Button x:Name="btnNewEmployee" Command="{Binding BtnNewEmployee}" Content="Neuer Mitarbeiter" HorizontalAlignment="Right" Margin="0,85,69,0" VerticalAlignment="Top"/>
+    <uc:NewProcessModelView Margin="33,38,395,52" Visibility="{Binding VisibilityNewProcessModel}"/>
+    <uc:NewEmployeeView Margin="33,38,395,52" Visibility="{Binding VisibilityNewEmployee}"/>
   </Grid>
 </UserControl>
