@@ -12,7 +12,7 @@
   <Grid>
     <Button x:Name="btnNewModell" Command="{Binding BtnNewProcessModel}" Content="Neues Vorgehensmodell" HorizontalAlignment="Right" Margin="0,35,29,0" VerticalAlignment="Top"/>
     <Button x:Name="btnNewEmployee" Command="{Binding BtnNewEmployee}" Content="Neuer Mitarbeiter" HorizontalAlignment="Right" Margin="0,85,69,0" VerticalAlignment="Top"/>
-    <uc:NewProcessModelView Margin="33,38,395,52" Visibility="{Binding VisibilityNewProcessModel}"/>
-    <uc:NewEmployeeView Margin="33,38,395,52" Visibility="{Binding VisibilityNewEmployee}"/>
+    <uc:NewProcessModelView Margin="33,38,345,8" Visibility="{Binding VisibilityNewProcessModel}"/>
+    <uc:NewEmployeeView Margin="33,38,345,8" Visibility="{Binding VisibilityNewEmployee}"/>
   </Grid>
 </UserControl>

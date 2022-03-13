@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Projektmanagement.Commands;
+using Projektmanagement.Items;
 using Projektmanagement.MainClasses;
 
 namespace Projektmanagement.ViewModels
@@ -20,8 +18,10 @@ namespace Projektmanagement.ViewModels
 
     protected NewProcessModel()
     {
-      BtnAddNew = new RelayCommand<object>(AddTextBox);
+      BtnAddOne = new RelayCommand<object>(AddTextBox);
+      BtnRemoveOne = new RelayCommand<object>(RemoveTextBox);
       BtnSave = new RelayCommand<object>(SaveProcessModels);
+      AddTextBox();
     }
 
     public static NewProcessModel GetInstance {
@@ -36,16 +36,21 @@ namespace Projektmanagement.ViewModels
     }
     #endregion
 
-    ObservableCollection<string> _itemCollection = new();
-    public ObservableCollection<string> ItemCollection {
+    ObservableCollection<MyTextBox> _textBoxcollection = new();
+    public ObservableCollection<MyTextBox> TextBoxCollection {
       get {
-        return _itemCollection;
+        return _textBoxcollection;
       }
-      set { _itemCollection = value;
+      set {
+        _textBoxcollection = value;
         OnPropertyChanged();
       }
     }
-    public ICommand BtnAddNew {
+    public ICommand BtnAddOne {
+      get;
+      private set;
+    }
+    public ICommand BtnRemoveOne {
       get;
       private set;
     }
@@ -55,30 +60,20 @@ namespace Projektmanagement.ViewModels
       private set;
     }
 
-    private string _phaseTextboxInput = "";
-    public string PhaseTextboxInput {
-      get {
-        return _phaseTextboxInput;
-      }
-
-      set {
-        _phaseTextboxInput = value;
-        OnPropertyChanged();
-      }
-    }
-
-    private void AddTextBox(object parameter)
+    private void AddTextBox(object? parameter = null)
     {
-      ItemCollection.Add("");
+      TextBoxCollection.Add(new MyTextBox());
     }
-
+    private void RemoveTextBox(object obj)
+    {
+      TextBoxCollection.RemoveAt(TextBoxCollection.Count - 1 );
+    }
 
     private void SaveProcessModels(object parameter)
     {
       List<ProcessModel> processModels = new();
-
-      foreach (var item in ItemCollection) {
-        processModels.Add(new ProcessModel(item));
+      foreach (var item in TextBoxCollection) {
+        processModels.Add(new ProcessModel(item.Text));
       }
     }
   }

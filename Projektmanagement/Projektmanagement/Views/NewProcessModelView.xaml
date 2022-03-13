@@ -4,23 +4,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
              xmlns:local="clr-namespace:Projektmanagement.Views"
          mc:Ignorable="d" 
-             Background="PapayaWhip"
+             Background="WhiteSmoke"
          d:DesignHeight="300" 
          d:DesignWidth="300">
   <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="133*"></ColumnDefinition>
+      <ColumnDefinition Width="17*"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+    <StackPanel Grid.Column="1">
+      <Button fa5:Awesome.Content="Solid_Plus"   Command="{Binding BtnAddOne}"    Margin="0,10,0,0" HorizontalAlignment="Right" FontSize="25" Height="30" Width="30" Padding="0"/>
+      <Button fa5:Awesome.Content="Solid_Minus"  Command="{Binding BtnRemoveOne}" Margin="0,10,0,0" HorizontalAlignment="Right" FontSize="25" Height="30" Width="30" Padding="0"/>
+      <Button fa5:Awesome.Content="Regular_Save" Command="{Binding BtnSave}"      Margin="0,10,0,0" HorizontalAlignment="Right" FontSize="25" Height="30" Width="30" Padding="0"/>
+    </StackPanel>
     <ScrollViewer>
       <StackPanel>
-        <Button Content="Add New" Command="{Binding BtnAddNew}" Margin="10" HorizontalAlignment="Right"/>
-        <ItemsControl ItemsSource="{Binding ItemCollection}">
+        <ItemsControl ItemsSource="{Binding TextBoxCollection}">
           <ItemsControl.ItemTemplate>
             <DataTemplate>
-              <TextBox  materialDesign:HintAssist.Hint="Input Phase Name"/>
+              <TextBox Text="{Binding Path=Text}"  materialDesign:HintAssist.Hint="Input Phase Name" HorizontalAlignment="Left"/>
             </DataTemplate>
           </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <Button Content="Save" Command="{Binding BtnSave}" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
       </StackPanel>
     </ScrollViewer>
   </Grid>
