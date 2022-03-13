@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using Projektmanagement.ViewModels;
 
 namespace Projektmanagement
 {

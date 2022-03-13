@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Projektmanagement.MainClasses
 {
   internal class Worktime
   {
-    
+
     private Employee employee;
     private DateTime time;
     private DateTime date;
@@ -22,7 +18,7 @@ namespace Projektmanagement.MainClasses
       set {
         employee = value;
       }
-    
+
     }
     public DateTime Time {
       get {

@@ -1,7 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Collections.Generic;
 using System.Windows.Input;
-using System.Collections.Generic;
-using System.ComponentModel;
 using Projektmanagement.Commands;
 using Projektmanagement.MainClasses;
 
@@ -10,7 +8,6 @@ namespace Projektmanagement.ViewModels
   internal class HomeViewModel : BaseViewModel
   {
     #region Singleton
-    // returns thread safe singleton
     private static HomeViewModel? instance = null;
     private static readonly object padlock = new();
 
@@ -20,14 +17,14 @@ namespace Projektmanagement.ViewModels
 
       //generating sample projects for testing
       projects = new List<Project>();
-      for(int i = 0; i < 20; i++) 
-      {
-        Projects.Add(new Project($"Test Projekt {i+1}"));
+      for (int i = 0; i < 20; i++) {
+        Projects.Add(new Project($"Test Projekt {i + 1}"));
       }
-
-
     }
 
+    /// <summary>
+    /// returns instance of class HomeViewModel
+    /// </summary>
     public static HomeViewModel GetInstance {
       get {
         lock (padlock) {
@@ -40,8 +37,8 @@ namespace Projektmanagement.ViewModels
     }
     #endregion
 
-    private string _labelText = "";
-    private string _textBoxText = "";
+    private string _labelText = string.Empty;
+    private string _textBoxText = string.Empty;
 
     private List<Project> projects;
 
@@ -52,7 +49,7 @@ namespace Projektmanagement.ViewModels
       }
 
       set {
-        _labelText = value; 
+        _labelText = value;
         OnPropertyChanged();
       }
     }
@@ -72,7 +69,6 @@ namespace Projektmanagement.ViewModels
         return new RelayCommand<object>(ExecuteBtnTestCommand);
       }
     }
-
     public List<Project> Projects {
       get {
         return projects;
@@ -88,8 +84,7 @@ namespace Projektmanagement.ViewModels
     {
       LabelText = TextBoxText;
 
-      TextBoxText = "";
+      TextBoxText = string.Empty;
     }
-
   }
 }

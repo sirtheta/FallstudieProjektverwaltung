@@ -6,19 +6,19 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa5="http://schemas.fontawesome.com/icons/"
              xmlns:local="clr-namespace:Projektmanagement.Views"
-         mc:Ignorable="d" 
+             mc:Ignorable="d" 
              Background="WhiteSmoke"
-         d:DesignHeight="300" 
-         d:DesignWidth="300">
+             d:DesignHeight="300" 
+             d:DesignWidth="300">
   <Grid>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="133*"></ColumnDefinition>
       <ColumnDefinition Width="17*"></ColumnDefinition>
     </Grid.ColumnDefinitions>
     <StackPanel Grid.Column="1">
+      <Button fa5:Awesome.Content="Regular_Save" Command="{Binding BtnSave}"      Margin="0,10,0,0" HorizontalAlignment="Right" FontSize="25" Height="30" Width="30" Padding="0"/>
       <Button fa5:Awesome.Content="Solid_Plus"   Command="{Binding BtnAddOne}"    Margin="0,10,0,0" HorizontalAlignment="Right" FontSize="25" Height="30" Width="30" Padding="0"/>
       <Button fa5:Awesome.Content="Solid_Minus"  Command="{Binding BtnRemoveOne}" Margin="0,10,0,0" HorizontalAlignment="Right" FontSize="25" Height="30" Width="30" Padding="0"/>
-      <Button fa5:Awesome.Content="Regular_Save" Command="{Binding BtnSave}"      Margin="0,10,0,0" HorizontalAlignment="Right" FontSize="25" Height="30" Width="30" Padding="0"/>
     </StackPanel>
     <ScrollViewer>
       <StackPanel>

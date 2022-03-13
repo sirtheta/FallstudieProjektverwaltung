@@ -26,14 +26,14 @@ namespace Projektmanagement.MainClasses
     /// <param name="assingedEmployee">employee wich is responsible for this activity (can be null)</param>
     /// <param name="worktimePlanned">planned worktime</param>
     /// <param name="costPointsPlanned">plannet costs aside of worktime</param>
-    public Activity(string name, string description, Employee? assingedEmployee,List<Worktime> worktimePlanned, List<CostPoint> costPointsPlanned)
+    public Activity(string name, string description, Employee? assingedEmployee, List<Worktime> worktimePlanned, List<CostPoint> costPointsPlanned)
     {
       this.name = name;
       this.description = description;
-      this.assingedEmployee = assingedEmployee;     
-      this.worktimePlanned = worktimePlanned; 
+      this.assingedEmployee = assingedEmployee;
+      this.worktimePlanned = worktimePlanned;
       this.costPointsPlanned = costPointsPlanned;
-      
+
 
       this.comments = new List<string>();
       this.state = ActivityState.Created;
@@ -121,15 +121,13 @@ namespace Projektmanagement.MainClasses
     /// <param name="timeToRemove"></param>
     public void RemoveWorktime(Worktime timeToRemove)
     {
-      try 
-      {
+      try {
         worktimeActual.Remove(timeToRemove);
       }
-      catch 
-      {
+      catch {
 
       }
-      
+
     }
 
     /// <summary>

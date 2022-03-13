@@ -8,13 +8,15 @@ namespace Projektmanagement.MainClasses
 /// </summary>
   internal class Employee
   {
-    private string name;
-    private string eMail;
-    private double hourlyRate;
-    private EmployeeRole role;
+    private string _name;
+    private string _eMail;
+    private double _hourlyRate;
+    private EmployeeRole _role;
 
     /// <summary>
-    /// 
+    /// Represents an employee
+    /// HourlyRate is used to calculate the cost
+    /// Role is used for access-control
     /// </summary>
     /// <param name="name">name of employee</param>
     /// <param name="eMail">E-Mail adress of employee</param>
@@ -22,50 +24,50 @@ namespace Projektmanagement.MainClasses
     /// <param name="role">role of employee</param>
     public Employee(string name, string eMail, double hourlyRate, EmployeeRole role)
     {
-      this.name = name;
-      this.eMail = eMail;
-      this.hourlyRate = hourlyRate;
-      this.role = role;
+      _name = name;
+      _eMail = eMail;
+      _hourlyRate = hourlyRate;
+      _role = role;
     }
 
     #region GET/SET
     public string Name {
       get {
-        return name;
+        return _name;
       }
 
       set {
-        name = value;
+        _name = value;
       }
     }
 
     public string EMail {
       get {
-        return eMail;
+        return _eMail;
       }
 
       set {
-        eMail = value;
+        _eMail = value;
       }
     }
 
     public double HourlyRate {
       get {
-        return hourlyRate;
+        return _hourlyRate;
       }
 
       set {
-        hourlyRate = value;
+        _hourlyRate = value;
       }
     }
 
     internal EmployeeRole Role {
       get {
-        return role;
+        return _role;
       }
 
       set {
-        role = value;
+        _role = value;
       }
     }
 
@@ -74,9 +76,9 @@ namespace Projektmanagement.MainClasses
 
   internal enum EmployeeRole
   {
-  Projectmanager,
-  Projectworker
-      //not complete...
+    Projectmanager,
+    Projectworker
+    //not complete...
   }
 
 }

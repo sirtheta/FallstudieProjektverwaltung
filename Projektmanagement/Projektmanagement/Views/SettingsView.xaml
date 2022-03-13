@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projektmanagement.Views"
-             xmlns:uc="clr-namespace:Projektmanagement.Views"
+             xmlns:uc="clr-namespace:Projektmanagement.Views" 
+             xmlns:viewmodels="clr-namespace:Projektmanagement.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:SettingsViewModel}"
              mc:Ignorable="d" 
              Background="WhiteSmoke"
              d:DesignWidth="750"
@@ -12,7 +14,13 @@
   <Grid>
     <Button x:Name="btnNewModell" Command="{Binding BtnNewProcessModel}" Content="Neues Vorgehensmodell" HorizontalAlignment="Right" Margin="0,35,29,0" VerticalAlignment="Top"/>
     <Button x:Name="btnNewEmployee" Command="{Binding BtnNewEmployee}" Content="Neuer Mitarbeiter" HorizontalAlignment="Right" Margin="0,85,69,0" VerticalAlignment="Top"/>
-    <uc:NewProcessModelView Margin="33,38,345,8" Visibility="{Binding VisibilityNewProcessModel}"/>
-    <uc:NewEmployeeView Margin="33,38,345,8" Visibility="{Binding VisibilityNewEmployee}"/>
+
+    <ContentControl Margin="33,38,345,8" Visibility="{Binding VisibilityNewProcessModelView}">
+      <uc:NewProcessModelView/>
+    </ContentControl>
+    <ContentControl Margin="33,38,345,8" Visibility="{Binding VisibilityNewEmployeeView}">
+      <uc:NewEmployeeView />
+    </ContentControl>
+
   </Grid>
 </UserControl>

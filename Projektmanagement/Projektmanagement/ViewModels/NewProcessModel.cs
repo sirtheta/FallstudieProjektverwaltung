@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Notifications.Wpf.Core;
 using Projektmanagement.Commands;
 using Projektmanagement.Items;
 using Projektmanagement.MainClasses;
@@ -24,6 +24,9 @@ namespace Projektmanagement.ViewModels
       AddTextBox();
     }
 
+    /// <summary>
+    /// returns instance of class NewProcessModel
+    /// </summary>
     public static NewProcessModel GetInstance {
       get {
         lock (padlock) {
@@ -43,13 +46,14 @@ namespace Projektmanagement.ViewModels
       }
       set {
         _textBoxcollection = value;
-        OnPropertyChanged();
       }
     }
+
     public ICommand BtnAddOne {
       get;
       private set;
     }
+
     public ICommand BtnRemoveOne {
       get;
       private set;
@@ -66,15 +70,28 @@ namespace Projektmanagement.ViewModels
     }
     private void RemoveTextBox(object obj)
     {
-      TextBoxCollection.RemoveAt(TextBoxCollection.Count - 1 );
+      if (TextBoxCollection.Count > 1) {
+        TextBoxCollection.RemoveAt(TextBoxCollection.Count - 1);
+      }
     }
 
+    /// <summary>
+    /// Save processModel input from textbox to processmodel.
+    /// if no text is added, phase will not be added to the list
+    /// </summary>
+    /// <param name="parameter"></param>
     private void SaveProcessModels(object parameter)
     {
       List<ProcessModel> processModels = new();
       foreach (var item in TextBoxCollection) {
-        processModels.Add(new ProcessModel(item.Text));
+        if (item.Text != null) {
+          processModels.Add(new ProcessModel(item.Text));
+        }
+        else {
+          break;
+        }
       }
+      ShowNotification("Success", "Process Model Saved!", NotificationType.Success);
     }
   }
 }

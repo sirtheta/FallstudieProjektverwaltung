@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using Projektmanagement.Commands;
 
@@ -12,14 +7,21 @@ namespace Projektmanagement.ViewModels
   internal class SettingsViewModel : BaseViewModel
   {
     #region Singleton
-    // returns thread safe singleton
     private static SettingsViewModel? instance = null;
     private readonly static object padlock = new();
 
     protected SettingsViewModel()
     {
+      VisibilityNewEmployeeView = Visibility.Collapsed;
+      VisibilityNewProcessModelView = Visibility.Collapsed;
     }
 
+    private Visibility _visibilityNewModelView;
+    private Visibility _visibilityNewEmployeeView;
+
+    /// <summary>
+    /// returns instance of class SettingsViewModel
+    /// </summary>
     public static SettingsViewModel GetInstance {
       get {
         lock (padlock) {
@@ -30,30 +32,27 @@ namespace Projektmanagement.ViewModels
         }
       }
     }
-
     #endregion
 
-    private Visibility visibilityNewModell = Visibility.Hidden;
-    private Visibility visibilityNewEmployee = Visibility.Hidden;
 
-    public Visibility VisibilityNewProcessModel {
+    public Visibility VisibilityNewProcessModelView {
       get {
-        return visibilityNewModell;
+        return _visibilityNewModelView;
       }
 
       set {
-        visibilityNewModell = value;
+        _visibilityNewModelView = value;
         OnPropertyChanged();
       }
     }
 
-    public Visibility VisibilityNewEmployee {
+    public Visibility VisibilityNewEmployeeView {
       get {
-        return visibilityNewEmployee;
+        return _visibilityNewEmployeeView;
       }
 
       set {
-        visibilityNewEmployee = value;
+        _visibilityNewEmployeeView = value;
         OnPropertyChanged();
       }
     }
@@ -64,7 +63,6 @@ namespace Projektmanagement.ViewModels
       }
     }
 
-
     public ICommand BtnNewEmployee {
       get {
         return new RelayCommand<object>(ExecuteBtnNewEmployee);
@@ -73,14 +71,14 @@ namespace Projektmanagement.ViewModels
 
     private void ExecuteBtnNewProcessModel(object Parameter)
     {
-      VisibilityNewEmployee = Visibility.Hidden;
-      VisibilityNewProcessModel = Visibility.Visible;
+      VisibilityNewEmployeeView = Visibility.Collapsed;
+      VisibilityNewProcessModelView = Visibility.Visible;
     }
 
     private void ExecuteBtnNewEmployee(object Parameter)
     {
-      VisibilityNewProcessModel = Visibility.Hidden;
-      VisibilityNewEmployee = Visibility.Visible;
+      VisibilityNewProcessModelView = Visibility.Collapsed;
+      VisibilityNewEmployeeView = Visibility.Visible;
     }
   }
 }

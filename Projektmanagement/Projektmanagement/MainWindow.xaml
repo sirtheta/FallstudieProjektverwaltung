@@ -6,6 +6,7 @@
         xmlns:fa5="http://schemas.fontawesome.com/icons/"
         xmlns:local="clr-namespace:Projektmanagement" 
         xmlns:viewmodels="clr-namespace:Projektmanagement.ViewModels"
+        xmlns:notifications="clr-namespace:Notifications.Wpf.Core.Controls;assembly=Notifications.Wpf.Core"
         mc:Ignorable="d"
         Title="Project Planning App" 
         Height="450" 
@@ -21,17 +22,25 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto">
   <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="50"/>
-      <RowDefinition Height="*"/>
-    </Grid.RowDefinitions>
+    <!--defines the area where to show the totification toast-->
+    <notifications:NotificationArea Panel.ZIndex="10" 
+              MaxItems="3"
+              x:Name="WindowArea"
+              Position="BottomRight" Margin="0,0,1,1">
+    </notifications:NotificationArea>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="50"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
 
-    <!--HomeButton-->
-    <Button x:Name="btnHome" fa5:Awesome.Content="Solid_Home" Command="{Binding HomeButtonCommand}" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" FontSize="35" Height="50" Width="50"/>
-    <!--SettingsButton-->
-    <Button x:Name="btnSettings" fa5:Awesome.Content="Solid_UserCog" Command="{Binding SettingsButtonCommand}" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Right" FontSize="30" Height="50" Width="50"/>
+      <!--HomeButton-->
+      <Button x:Name="btnHome" fa5:Awesome.Content="Solid_Home" Command="{Binding HomeButtonCommand}" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" FontSize="35" Height="50" Width="50"/>
+      <!--SettingsButton-->
+      <Button x:Name="btnSettings" fa5:Awesome.Content="Solid_UserCog" Command="{Binding SettingsButtonCommand}" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Right" FontSize="30" Height="50" Width="50"/>
 
-    <ContentControl Content="{Binding SelectedViewModel}" Grid.Row="1"/>
+      <ContentControl Content="{Binding SelectedViewModel}" Grid.Row="1"/>
 
+    </Grid>
   </Grid>
 </Window>

@@ -5,8 +5,6 @@ namespace Projektmanagement.ViewModels
 {
   internal class MainViewModel : BaseViewModel
   {
-
-
     private BaseViewModel _selectedViewModel;
 
     public MainViewModel(BaseViewModel viewModel)
@@ -29,12 +27,12 @@ namespace Projektmanagement.ViewModels
         return new RelayCommand<object>(OnHomeButtonClicked);
       }
     }
+
     public ICommand SettingsButtonCommand {
       get {
         return new RelayCommand<object>(OnSettingsButtonClicked);
       }
     }
-
 
     private void OnHomeButtonClicked(object Parameter)
     {
