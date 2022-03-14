@@ -49,6 +49,17 @@ namespace Projektmanagement.ViewModels
       }
     }
 
+    string _processModelName = string.Empty;
+    public string ProcessModelName {
+      get {
+        return _processModelName;
+      }
+      set {
+        _processModelName = value;
+        OnPropertyChanged();
+      }
+    }
+
     public ICommand BtnAddOne {
       get;
       private set;
@@ -63,6 +74,7 @@ namespace Projektmanagement.ViewModels
       get;
       private set;
     }
+
 
     private void AddTextBox(object? parameter = null)
     {
@@ -81,16 +93,29 @@ namespace Projektmanagement.ViewModels
     /// </summary>
     /// <param name="parameter"></param>
     private void SaveProcessModels(object parameter)
-    {      
+    {
+      List<string> phaseName = new();
       foreach (var item in TextBoxCollection) {
         if (item.Text != null) {
-          ProcessModels.Add(new ProcessModel(item.Text));
+          phaseName.Add(item.Text);
         }
         else {
           break;
         }
       }
+      ProcessModels.Add(new ProcessModel(ProcessModelName, phaseName));
       ShowNotification("Success", "Process Model Saved!", NotificationType.Success);
+      ClearInputFields();
+    }
+
+    /// <summary>
+    /// if save is successfull, reset the inputfields
+    /// </summary>
+    private void ClearInputFields()
+    {
+      TextBoxCollection.Clear();
+      AddTextBox();
+      ProcessModelName = string.Empty;
     }
   }
 }

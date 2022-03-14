@@ -10,26 +10,26 @@ namespace Projektmanagement.ViewModels
 {
   internal abstract class BaseViewModel : DependencyObject, INotifyPropertyChanged
   {
-    private List<ProcessModel> processModels = new();
-    private List<Employee> employees = new();
+    private List<ProcessModel> _processModels = new();
+    private List<Employee> _employees = new();
 
     internal List<ProcessModel> ProcessModels {
       get {
-        return processModels;
+        return _processModels;
       }
 
       set {
-        processModels = value;
+        _processModels = value;
       }
     }
 
     internal List<Employee> Employees {
       get {
-        return employees;
+        return _employees;
       }
 
       set {
-        employees = value;
+        _employees = value;
       }
     }
 
