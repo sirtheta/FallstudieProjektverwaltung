@@ -13,8 +13,7 @@ namespace Projektmanagement.ViewModels
 
     #region Singleton
     private static NewEmployeeModel? instance = null;
-    private readonly static object padlock = new();
-    private readonly List<Employee> employees = new();
+    private readonly static object padlock    = new();
 
     protected NewEmployeeModel()
     {
@@ -37,7 +36,7 @@ namespace Projektmanagement.ViewModels
     #endregion
 
     private string _fullName = string.Empty;
-    private string _email = string.Empty;
+    private string _email    = string.Empty;
     private double _hourlyRate;
 
     public string FullName {
@@ -108,7 +107,7 @@ namespace Projektmanagement.ViewModels
     private void SaveNewEmployee(object obj)
     {
       if (FullName != String.Empty && Email != String.Empty && HourlyRate > 0) {
-        employees.Add(new Employee(FullName, Email, HourlyRate, SelectedEmployeeRole));
+        Employees.Add(new Employee(FullName, Email, HourlyRate, SelectedEmployeeRole));
         ClearInputFields();
         ShowNotification("Success", "Employee Saved!", NotificationType.Success);
       }

@@ -81,11 +81,10 @@ namespace Projektmanagement.ViewModels
     /// </summary>
     /// <param name="parameter"></param>
     private void SaveProcessModels(object parameter)
-    {
-      List<ProcessModel> processModels = new();
+    {      
       foreach (var item in TextBoxCollection) {
         if (item.Text != null) {
-          processModels.Add(new ProcessModel(item.Text));
+          ProcessModels.Add(new ProcessModel(item.Text));
         }
         else {
           break;
