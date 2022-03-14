@@ -24,11 +24,11 @@
     </StackPanel>
     <ScrollViewer>
       <StackPanel>
-        <TextBox Text="{Binding Path=ProcessModelName}"  materialDesign:HintAssist.Hint="Process model name" HorizontalAlignment="Left"/>
+        <TextBox Text="{Binding Path=ProcessModelName}"  Margin="10,10,0,0" materialDesign:HintAssist.Hint="Process model name" HorizontalAlignment="Left"/>
         <ItemsControl ItemsSource="{Binding TextBoxCollection}">
           <ItemsControl.ItemTemplate>
             <DataTemplate>
-              <TextBox Text="{Binding Path=Text}"  materialDesign:HintAssist.Hint="Input phase name" HorizontalAlignment="Left"/>
+              <TextBox Text="{Binding Path=Text}" Margin="10,0,0,0" materialDesign:HintAssist.Hint="Input phase name" HorizontalAlignment="Left"/>
             </DataTemplate>
           </ItemsControl.ItemTemplate>
         </ItemsControl>

@@ -94,18 +94,23 @@ namespace Projektmanagement.ViewModels
     /// <param name="parameter"></param>
     private void SaveProcessModels(object parameter)
     {
-      List<string> phaseName = new();
-      foreach (var item in TextBoxCollection) {
-        if (item.Text != null) {
-          phaseName.Add(item.Text);
+      if (ProcessModelName != string.Empty) {
+        List<string> phaseName = new();
+        foreach (var item in TextBoxCollection) {
+          if (item.Text != null) {
+            phaseName.Add(item.Text);
+          }
+          else {
+            break;
+          }
         }
-        else {
-          break;
-        }
+        ProcessModels.Add(new ProcessModel(ProcessModelName, phaseName));
+        ShowNotification("Success", "Process Model Saved!", NotificationType.Success);
+        ClearInputFields();
       }
-      ProcessModels.Add(new ProcessModel(ProcessModelName, phaseName));
-      ShowNotification("Success", "Process Model Saved!", NotificationType.Success);
-      ClearInputFields();
+      else {
+        ShowNotification("Error", "Processmodel could not be saved! Check your input!", NotificationType.Error);
+      }
     }
 
     /// <summary>
