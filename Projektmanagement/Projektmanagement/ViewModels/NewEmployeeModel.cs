@@ -107,7 +107,7 @@ namespace Projektmanagement.ViewModels
     private void SaveNewEmployee(object obj)
     {
       if (FullName != String.Empty && Email != String.Empty && HourlyRate > 0) {
-        Employees.Add(new Employee(FullName, Email, HourlyRate, SelectedEmployeeRole));
+        HomeViewModel.GetInstance.Employees.Add(new Employee(FullName, Email, HourlyRate, SelectedEmployeeRole));
         ClearInputFields();
         ShowNotification("Success", "Employee Saved!", NotificationType.Success);
       }

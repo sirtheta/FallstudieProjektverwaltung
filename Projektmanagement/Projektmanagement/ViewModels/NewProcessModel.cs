@@ -104,7 +104,7 @@ namespace Projektmanagement.ViewModels
             break;
           }
         }
-        ProcessModels.Add(new ProcessModel(ProcessModelName, phaseName));
+        HomeViewModel.GetInstance.ProcessModels.Add(new ProcessModel(ProcessModelName, phaseName));
         ShowNotification("Success", "Process Model Saved!", NotificationType.Success);
         ClearInputFields();
       }

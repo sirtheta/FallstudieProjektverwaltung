@@ -16,7 +16,7 @@ namespace Projektmanagement.ViewModels
       LabelText = "Home View";
 
       //generating sample projects for testing
-      projects = new List<Project>();
+      Projects = new List<Project>();
       for (int i = 0; i < 20; i++) {
         Projects.Add(new Project($"Test Projekt {i + 1}"));
       }
@@ -39,8 +39,41 @@ namespace Projektmanagement.ViewModels
 
     private string _labelText = string.Empty;
     private string _textBoxText = string.Empty;
+    private List<ProcessModel> _processModels = new();
+    private List<Employee> _employees = new();
+    private List<Project> _projects = new();
 
-    private List<Project> projects;
+    internal List<ProcessModel> ProcessModels {
+      get {
+        return _processModels;
+      }
+
+      set {
+        _processModels = value;
+      }
+    }
+
+    internal List<Employee> Employees {
+      get {
+        return _employees;
+      }
+
+      set {
+        _employees = value;
+      }
+    }
+
+    internal List<Project> Projects {
+      get {
+        return _projects;
+      }
+
+      set {
+        _projects = value;
+      }
+    }
+
+
 
 
     public string LabelText {
@@ -69,16 +102,7 @@ namespace Projektmanagement.ViewModels
         return new RelayCommand<object>(ExecuteBtnTestCommand);
       }
     }
-    public List<Project> Projects {
-      get {
-        return projects;
-      }
-
-      set {
-        projects = value;
-        OnPropertyChanged();
-      }
-    }
+   
 
     private void ExecuteBtnTestCommand(object Parameter)
     {

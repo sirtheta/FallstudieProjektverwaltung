@@ -10,40 +10,7 @@ namespace Projektmanagement.ViewModels
 {
   internal abstract class BaseViewModel : DependencyObject, INotifyPropertyChanged
   {
-    private List<ProcessModel> _processModels = new();
-    private List<Employee> _employees = new();
-    private List<Project> _projects = new();
-
-    internal List<ProcessModel> ProcessModels {
-      get {
-        return _processModels;
-      }
-
-      set {
-        _processModels = value;
-      }
-    }
-
-    internal List<Employee> Employees {
-      get {
-        return _employees;
-      }
-
-      set {
-        _employees = value;
-      }
-    }
-
-    internal List<Project> Projects {
-      get {
-        return _projects;
-      }
-
-      set {
-        _projects = value;
-      }
-    }
-
+   
     internal void ShowNotification(string titel, string message, NotificationType type)
     {
       var notificationManager = new NotificationManager();
