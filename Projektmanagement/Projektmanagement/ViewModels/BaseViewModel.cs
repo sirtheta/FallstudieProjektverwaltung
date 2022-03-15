@@ -12,6 +12,7 @@ namespace Projektmanagement.ViewModels
   {
     private List<ProcessModel> _processModels = new();
     private List<Employee> _employees = new();
+    private List<Project> _projects = new();
 
     internal List<ProcessModel> ProcessModels {
       get {
@@ -30,6 +31,16 @@ namespace Projektmanagement.ViewModels
 
       set {
         _employees = value;
+      }
+    }
+
+    internal List<Project> Projects {
+      get {
+        return _projects;
+      }
+
+      set {
+        _projects = value;
       }
     }
 
