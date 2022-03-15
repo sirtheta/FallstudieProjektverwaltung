@@ -3,14 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Projektmanagement.Views"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             xmlns:vm = "clr-namespace:Projektmanagement.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="500"
-             Background="Beige"
-            DataContext="{Binding RelativeSource={RelativeSource Self}}">
-   
-
+             Background="Transparent"           
+             d:DataContext="{d:DesignInstance Type=vm:ProjectObjectViewModel}">
+    <Border Name="MainBorder" BorderBrush="#FF000000"  BorderThickness="2" CornerRadius="8" MouseEnter="Border_MouseEnter">
+        <Border.Effect>
+            <DropShadowEffect Color="LightGray"/>
+        </Border.Effect>
+        <Border.Style>
+            <Style>
+                <Setter  Property="Border.Background" Value="{DynamicResource MaterialDesignCardBackground}"/>
+                <Style.Triggers>
+                    <Trigger Property="Border.IsMouseOver" Value="true">
+                        <Setter Property="Border.Background" Value="LightYellow"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
     <Grid>
-        <Label Content="{Binding ProjectLabelText}" x:Name="Test" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    </Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ProgressBar  Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Stretch" Height="20
+                         " Margin="10,2,10,2" Value="{Binding Path=Progress}" BorderBrush="Black" Background="Black" Foreground="LightGreen" >
+            </ProgressBar>
+
+            <Label Grid.Column="1" Grid.Row="0" Content="{Binding Path=ProjectName}" x:Name="Title" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontWeight="Bold" FontSize="15" />
+        <Label Grid.Column="0" Grid.Row="1" Content="Info about Project" x:Name="Info" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Column="1" Grid.Row="3" fa5:Awesome.Content="Regular_ArrowAltCircleDown" Command=""  HorizontalAlignment="Center" FontSize="15" Background="Transparent" BorderBrush="Transparent" />
+        </Grid>
+        
+    </Border>
+  
 </UserControl>

@@ -7,7 +7,7 @@
              xmlns:local ="clr-namespace:Projektmanagement.Views"
              xmlns:vm = "clr-namespace:Projektmanagement.ViewModels"
              mc:Ignorable="d" 
-             Background="Blue"
+             Background="{DynamicResource MaterialDesignPaper}"
              d:DesignWidth="750"
              d:DesignHeight="450">
     <Grid >
@@ -20,11 +20,12 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Auto">
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="{DynamicResource MaterialDesignColumnHeader}"/>
+        <ScrollViewer Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Auto" PanningMode="VerticalOnly">
             <StackPanel Grid.Column="1" Grid.Row="1" Name="ProjectStackpanel">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type local:ProjectObjectView}">
-                        <Setter Property="Margin" Value="0,10,0,0"/>
+                        <Setter Property="Margin" Value="5,10,5,0"/>
                     </Style>
                 </StackPanel.Resources>
             </StackPanel>

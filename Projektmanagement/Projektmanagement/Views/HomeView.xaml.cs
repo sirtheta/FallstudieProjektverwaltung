@@ -19,10 +19,17 @@ namespace Projektmanagement.Views
 
     private void InitializeStackpanel()
     {
-      for (int i = 0; i < vm.Projects.Count; i++) {
-        ProjectStackpanel.Children.Add(new ProjectObjectView(vm.Projects[i].ProjectName));
+      for (int i = 0; i < vm.Projects.Count; i++) 
+      {
+        ProjectObjectView newView = new ProjectObjectView();
+        ProjectObjectViewModel newViewModel = new ProjectObjectViewModel(vm.Projects[i]);
+        newView.Content = newViewModel;
+        
+        ProjectStackpanel.Children.Add(newView);
       }
       InitializeComponent();
     }
+
+    
   }
 }
