@@ -20,7 +20,7 @@
                 <Setter  Property="Border.Background" Value="{DynamicResource MaterialDesignCardBackground}"/>
                 <Style.Triggers>
                     <Trigger Property="Border.IsMouseOver" Value="true">
-                        <Setter Property="Border.Background" Value="LightYellow"/>
+                        <Setter Property="Border.Background" Value="{DynamicResource MaterialDesignSelection}"/>
                     </Trigger>
                 </Style.Triggers>
             </Style>

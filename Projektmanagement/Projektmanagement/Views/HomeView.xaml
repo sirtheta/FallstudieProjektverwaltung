@@ -6,6 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local ="clr-namespace:Projektmanagement.Views"
              xmlns:vm = "clr-namespace:Projektmanagement.ViewModels"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
              mc:Ignorable="d" 
              Background="{DynamicResource MaterialDesignPaper}"
              d:DesignWidth="750"
@@ -18,16 +19,19 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="{DynamicResource MaterialDesignColumnHeader}"/>
-        <ScrollViewer Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Auto" PanningMode="VerticalOnly">
-            <StackPanel Grid.Column="1" Grid.Row="1" Name="ProjectStackpanel">
+        <Button x:Name="AddProjectButton" Grid.Row="1" Grid.Column="1" fa5:Awesome.Content="Solid_PlusSquare" Margin="5,10,5,0"/>
+        <ScrollViewer Grid.Column="1" Grid.Row="2" HorizontalScrollBarVisibility="Auto" PanningMode="VerticalOnly">
+            <StackPanel Grid.Column="1" Grid.Row="2" Name="ProjectStackpanel">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type local:ProjectObjectView}">
                         <Setter Property="Margin" Value="5,10,5,0"/>
                     </Style>
                 </StackPanel.Resources>
+               
             </StackPanel>
         </ScrollViewer>
     </Grid>
