@@ -14,10 +14,11 @@ namespace Projektmanagement.ViewModels
     {
       Project = _project;
       GetPhaseCount();
+      ProjectName = Project.ProjectName;
     }
 
-    ObservableCollection<Phase> _phaseCollection = new();
-    internal ObservableCollection<Phase> PhaseCollection {
+    private ObservableCollection<Phase> _phaseCollection = new();
+    public ObservableCollection<Phase> PhaseCollection {
       get {
         return _phaseCollection;
       }
@@ -31,11 +32,23 @@ namespace Projektmanagement.ViewModels
       get;
     }
 
+    private string _projectName = string.Empty;
+
+    public string ProjectName {
+      get {
+        return _projectName;
+      }
+      set {
+        _projectName = value;
+        OnPropertyChanged();
+      }
+    }
+
     private void GetPhaseCount()
     {
       foreach (var item in Project.Phases) {
         PhaseCollection.Add(item);
-      }      
+      }
     }
   }
 }

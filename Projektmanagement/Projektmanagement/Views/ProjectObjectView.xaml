@@ -41,8 +41,8 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <ProgressBar  Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Stretch" Height="20
-                         " Margin="10,2,10,2" Value="{Binding Path=Progress}" BorderBrush="Black" Background="Black" Foreground="LightGreen" >
+            <ProgressBar  Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Stretch" Height="20" 
+                          Margin="10,2,10,2" Value="{Binding Path=Progress}" BorderBrush="Black" Background="Black" Foreground="LightGreen" >
             </ProgressBar>
 
             <Label Grid.Column="1" Grid.Row="0" Content="{Binding Path=ProjectName}" x:Name="Title" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontWeight="Bold" FontSize="15" />
