@@ -12,8 +12,8 @@ namespace Projektmanagement.ViewModels
 
     protected SettingsViewModel()
     {
-      VisibilityNewEmployeeView = Visibility.Collapsed;
-      VisibilityNewProcessModelView = Visibility.Collapsed;
+      VisibilityNewEmployeeView = Visibility.Visible;
+      VisibilityNewProcessModelView = Visibility.Hidden;
     }
 
     private Visibility _visibilityNewModelView;
@@ -71,13 +71,13 @@ namespace Projektmanagement.ViewModels
 
     private void ExecuteBtnNewProcessModel(object Parameter)
     {
-      VisibilityNewEmployeeView = Visibility.Collapsed;
+      VisibilityNewEmployeeView = Visibility.Hidden;
       VisibilityNewProcessModelView = Visibility.Visible;
     }
 
     private void ExecuteBtnNewEmployee(object Parameter)
     {
-      VisibilityNewProcessModelView = Visibility.Collapsed;
+      VisibilityNewProcessModelView = Visibility.Hidden;
       VisibilityNewEmployeeView = Visibility.Visible;
     }
   }

@@ -1,30 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Projektmanagement.MainClasses;
 
 namespace Projektmanagement.ViewModels
 {
   internal class PhaseViewModel : BaseViewModel
   {
-    #region Singleton
-    private static PhaseViewModel? instance = null;
-    private readonly static object padlock = new();
+    public PhaseViewModel(Project _project)
+    {
+      Project = _project;
+      GetPhaseCount();
+    }
 
-    /// <summary>
-    /// returns instance of class PhaseViewModel
-    /// </summary>
-    public static PhaseViewModel GetInstance {
+    ObservableCollection<Phase> _phaseCollection = new();
+    internal ObservableCollection<Phase> PhaseCollection {
       get {
-        lock (padlock) {
-          if (instance == null) {
-            instance = new PhaseViewModel();
-          }
-          return instance;
-        }
+        return _phaseCollection;
+      }
+
+      set {
+        _phaseCollection = value;
       }
     }
-    #endregion
+
+    public Project Project {
+      get;
+    }
+
+    private void GetPhaseCount()
+    {
+      foreach (var item in Project.Phases) {
+        PhaseCollection.Add(item);
+      }      
+    }
   }
 }

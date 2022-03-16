@@ -2,11 +2,11 @@
 {
   internal class Phase
   {
-    public Phase(string phasenname)
+    public Phase(string phasename)
     {
-      Phasenname = phasenname;
+      Phasename = phasename;
     }
 
-    public string Phasenname { get; set; }
+    public string Phasename { get; set; }
   }
 }
