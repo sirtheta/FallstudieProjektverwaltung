@@ -6,10 +6,25 @@ namespace Projektmanagement.ViewModels
   internal class MainViewModel : BaseViewModel
   {
     private BaseViewModel _selectedViewModel;
+    
+    #region Singleton
+    private static MainViewModel? instance = null;
 
+
+
+    /// <summary>
+    /// returns instance of class MainViewModel
+    /// </summary>
+    public static MainViewModel GetInstance {
+      get {
+        return instance;
+      }
+    }
+    #endregion
     public MainViewModel(BaseViewModel viewModel)
     {
       _selectedViewModel = viewModel;
+      instance = this;
     }
 
     public BaseViewModel SelectedViewModel {

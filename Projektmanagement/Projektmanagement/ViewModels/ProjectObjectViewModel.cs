@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Projektmanagement.Commands;
 using Projektmanagement.MainClasses;
 
 namespace Projektmanagement.ViewModels
 {
-  internal class ProjectObjectViewModel
+  internal class ProjectObjectViewModel:BaseViewModel
   {
     private Project _project;
     private int _progress;
@@ -34,6 +36,18 @@ namespace Projektmanagement.ViewModels
       set {
         _progress = value;
       }
+    }
+
+    public ICommand ProjectObjectDoubleClickComand{
+      get {
+        return new RelayCommand<object>(ProjectObjectDoubleClick);
+      }
+    }
+
+    private void ProjectObjectDoubleClick(Object Parameter)
+    {
+
+      MainViewModel.GetInstance.SelectedViewModel = new PhaseViewModel(_project);
     }
   }
 }

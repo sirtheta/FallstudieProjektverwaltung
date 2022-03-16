@@ -10,11 +10,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="500"
              Background="Transparent"           
-             d:DataContext="{d:DesignInstance Type=vm:ProjectObjectViewModel}">
+             d:DataContext="{d:DesignInstance Type=vm:ProjectObjectViewModel}" >
+    
     <Border Name="MainBorder" BorderBrush="#FF000000"  BorderThickness="2" CornerRadius="8" MouseEnter="Border_MouseEnter">
         <Border.Effect>
             <DropShadowEffect Color="LightGray"/>
         </Border.Effect>
+        <Border.InputBindings>
+            <MouseBinding Gesture="LeftDoubleClick" Command="{Binding ProjectObjectDoubleClickComand}" />
+        </Border.InputBindings>
         <Border.Style>
             <Style>
                 <Setter  Property="Border.Background" Value="{DynamicResource MaterialDesignCardBackground}"/>
@@ -22,6 +26,7 @@
                     <Trigger Property="Border.IsMouseOver" Value="true">
                         <Setter Property="Border.Background" Value="{DynamicResource MaterialDesignSelection}"/>
                     </Trigger>
+       
                 </Style.Triggers>
             </Style>
         </Border.Style>
