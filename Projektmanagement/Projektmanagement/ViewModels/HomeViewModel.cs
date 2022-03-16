@@ -17,8 +17,10 @@ namespace Projektmanagement.ViewModels
 
       //generating sample projects for testing
       Projects = new List<Project>();
+      ProcessModel testPM = new ProcessModel("Test", new List<string> { "Initialize", "Planning", "Execution", "End" });
       for (int i = 0; i < 20; i++) {
-        Projects.Add(new Project($"Test Projekt {i + 1}"));
+
+        Projects.Add(new Project($"Test Projekt {i + 1}",testPM));
       }
     }
 
