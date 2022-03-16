@@ -16,7 +16,7 @@
       <RowDefinition Height="62"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
-    <materialDesign:Card>
+    <materialDesign:Card Grid.Row="0" Background="{DynamicResource MaterialDesignCardBackground}">
       <Label Content="{Binding ProjectName}" FontFamily="Arial Black" FontSize="30" HorizontalContentAlignment="Center" />
     </materialDesign:Card>
 

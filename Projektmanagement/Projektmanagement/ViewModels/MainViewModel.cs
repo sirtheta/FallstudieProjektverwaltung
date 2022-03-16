@@ -7,20 +7,17 @@ namespace Projektmanagement.ViewModels
   {
     private BaseViewModel _selectedViewModel;
     
-    #region Singleton
     private static MainViewModel? instance = null;
-
-
 
     /// <summary>
     /// returns instance of class MainViewModel
     /// </summary>
-    public static MainViewModel GetInstance {
+    public static MainViewModel? GetInstance {
       get {
-        return instance;
+        return instance; 
       }
     }
-    #endregion
+
     public MainViewModel(BaseViewModel viewModel)
     {
       _selectedViewModel = viewModel;
