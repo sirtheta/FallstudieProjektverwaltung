@@ -11,7 +11,7 @@
              d:DesignHeight="100" d:DesignWidth="500"
              Background="Transparent"           
              d:DataContext="{d:DesignInstance Type=vm:ProjectObjectViewModel}" >
-    
+
     <Border Name="MainBorder" BorderBrush="#FF000000"  BorderThickness="2" CornerRadius="8" MouseEnter="Border_MouseEnter">
         <Border.Effect>
             <DropShadowEffect Color="LightGray"/>
@@ -26,16 +26,15 @@
                     <Trigger Property="Border.IsMouseOver" Value="true">
                         <Setter Property="Border.Background" Value="{DynamicResource MaterialDesignSelection}"/>
                     </Trigger>
-       
                 </Style.Triggers>
             </Style>
         </Border.Style>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -47,10 +46,9 @@
             </ProgressBar>
 
             <Label Grid.Column="1" Grid.Row="0" Content="{Binding Path=ProjectName}" x:Name="Title" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontWeight="Bold" FontSize="15" />
-        <Label Grid.Column="0" Grid.Row="1" Content="Info about Project" x:Name="Info" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Column="0" Grid.Row="1" Content="Info about Project" x:Name="Info" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button Grid.Column="1" Grid.Row="3" fa5:Awesome.Content="Regular_ArrowAltCircleDown" Command=""  HorizontalAlignment="Center" FontSize="15" Background="Transparent" BorderBrush="Transparent" />
         </Grid>
-        
     </Border>
-  
+
 </UserControl>
