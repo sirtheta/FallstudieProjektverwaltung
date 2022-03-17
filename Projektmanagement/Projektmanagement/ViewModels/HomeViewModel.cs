@@ -13,8 +13,6 @@ namespace Projektmanagement.ViewModels
 
     protected HomeViewModel()
     {
-      LabelText = "Home View";
-
       //generating sample projects for testing
       Projects = new List<Project>();
       ProcessModel testPM = new ProcessModel("Test", new List<string> { "Initialize", "Planning", "Execution", "End" });
@@ -73,44 +71,6 @@ namespace Projektmanagement.ViewModels
       set {
         _projects = value;
       }
-    }
-
-
-
-
-    public string LabelText {
-      get {
-        return _labelText;
-      }
-
-      set {
-        _labelText = value;
-        OnPropertyChanged();
-      }
-    }
-
-    public string TextBoxText {
-      get {
-        return _textBoxText;
-      }
-      set {
-        _textBoxText = value;
-        OnPropertyChanged();
-      }
-    }
-
-    public ICommand BtnTestCommand {
-      get {
-        return new RelayCommand<object>(ExecuteBtnTestCommand);
-      }
-    }
-   
-
-    private void ExecuteBtnTestCommand(object Parameter)
-    {
-      LabelText = TextBoxText;
-
-      TextBoxText = string.Empty;
     }
   }
 }
