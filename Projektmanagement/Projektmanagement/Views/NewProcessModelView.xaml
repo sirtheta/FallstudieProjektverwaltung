@@ -28,7 +28,7 @@
         <ItemsControl ItemsSource="{Binding TextBoxCollection}">
           <ItemsControl.ItemTemplate>
             <DataTemplate>
-              <TextBox Text="{Binding Path=Text}" Margin="10,0,0,0" materialDesign:HintAssist.Hint="Input phase name" HorizontalAlignment="Left"/>
+              <TextBox Text="{Binding Path=PhaseName}" Margin="10,0,0,0" materialDesign:HintAssist.Hint="Input phase name" HorizontalAlignment="Left"/>
             </DataTemplate>
           </ItemsControl.ItemTemplate>
         </ItemsControl>

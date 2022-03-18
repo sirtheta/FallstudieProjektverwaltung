@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Notifications.Wpf.Core;
 using Projektmanagement.Commands;
-using Projektmanagement.Items;
 using Projektmanagement.MainClasses;
 
 namespace Projektmanagement.ViewModels
@@ -39,8 +38,8 @@ namespace Projektmanagement.ViewModels
     }
     #endregion
 
-    ObservableCollection<MyTextBox> _textBoxcollection = new();
-    public ObservableCollection<MyTextBox> TextBoxCollection {
+    private ObservableCollection<Phase> _textBoxcollection = new();
+    public ObservableCollection<Phase> TextBoxCollection {
       get {
         return _textBoxcollection;
       }
@@ -78,7 +77,7 @@ namespace Projektmanagement.ViewModels
 
     private void AddTextBox(object? parameter = null)
     {
-      TextBoxCollection.Add(new MyTextBox());
+      TextBoxCollection.Add(new Phase(string.Empty));
     }
     private void RemoveTextBox(object obj)
     {
@@ -97,8 +96,8 @@ namespace Projektmanagement.ViewModels
       if (ProcessModelName != string.Empty) {
         List<string> phaseName = new();
         foreach (var item in TextBoxCollection) {
-          if (item.Text != null) {
-            phaseName.Add(item.Text);
+          if (item.PhaseName != null) {
+            phaseName.Add(item.PhaseName);
           }
           else {
             break;
