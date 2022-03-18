@@ -4,27 +4,29 @@
              xmlns:local="clr-namespace:Projektmanagement"
              xmlns:views="clr-namespace:Projektmanagement.Views"
              xmlns:viewmodels="clr-namespace:Projektmanagement.ViewModels">
-    <Application.Resources>
-        <ResourceDictionary>
-            <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
-                <views:HomeView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:SettingsViewModel}">
-                <views:SettingsView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:PhaseViewModel}">
-                <views:PhaseView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:ProjectObjectViewModel}">
-                <views:ProjectObjectView/>
-            </DataTemplate>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Grey.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Purple.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-
-    </Application.Resources>
+  <Application.Resources>
+    <ResourceDictionary>
+      <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+        <views:HomeView/>
+      </DataTemplate>
+      <DataTemplate DataType="{x:Type viewmodels:SettingsViewModel}">
+        <views:SettingsView/>
+      </DataTemplate>
+      <DataTemplate DataType="{x:Type viewmodels:PhaseViewModel}">
+        <views:PhaseView/>
+      </DataTemplate>
+      <DataTemplate DataType="{x:Type viewmodels:ProjectObjectViewModel}">
+        <views:ProjectObjectView/>
+      </DataTemplate>
+      <DataTemplate DataType="{x:Type viewmodels:AddProjectViewModel}">
+        <views:AddProjectView/>
+      </DataTemplate>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Grey.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Purple.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
 </Application>

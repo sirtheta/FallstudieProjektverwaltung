@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Projektmanagement.Commands;
 using Projektmanagement.MainClasses;
@@ -14,11 +16,11 @@ namespace Projektmanagement.ViewModels
     protected HomeViewModel()
     {
       //generating sample projects for testing
-      Projects = new List<Project>();
+      Projects = new ObservableCollection<Project>();
       ProcessModel testPM = new ProcessModel("Test", new List<string> { "Initialize", "Planning", "Execution", "End" });
       for (int i = 0; i < 20; i++) {
 
-        Projects.Add(new Project($"Test Projekt {i + 1}", testPM, true));
+        Projects.Add(new Project($"Test Projekt {i + 1}", "Info about Project", new Employee("Gerhard Schröder", "gh@sh.de", 95, EmployeeRole.Projectmanager), testPM,  true));
       }
     }
 
@@ -37,11 +39,9 @@ namespace Projektmanagement.ViewModels
     }
     #endregion
 
-    private string _labelText = string.Empty;
-    private string _textBoxText = string.Empty;
     private List<ProcessModel> _processModels = new();
     private List<Employee> _employees = new();
-    private List<Project> _projects = new();
+    private ObservableCollection<Project> _projects = new();
 
     internal List<ProcessModel> ProcessModels {
       get {
@@ -63,13 +63,26 @@ namespace Projektmanagement.ViewModels
       }
     }
 
-    internal List<Project> Projects {
+    internal ObservableCollection<Project> Projects {
       get {
         return _projects;
       }
 
       set {
         _projects = value;
+      }
+    }
+
+    public ICommand AddProjectButtonCommand {
+      get {
+        return new RelayCommand<object>(OnAddProjectButtonClicked);
+      }
+    }
+
+    private void OnAddProjectButtonClicked(object obj)
+    {
+      if (MainViewModel.GetInstance != null) {
+        MainViewModel.GetInstance.SelectedViewModel = new AddProjectViewModel(this);
       }
     }
   }

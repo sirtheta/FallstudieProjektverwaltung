@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="Projektmanagement.Views.AddProjectView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Projektmanagement.Views" 
+             xmlns:viewmodels="clr-namespace:Projektmanagement.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:AddProjectViewModel}"
+             mc:Ignorable="d" 
+             d:Background="{DynamicResource MaterialDesignPaper}"
+             d:DesignHeight="450" 
+             d:DesignWidth="800">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="62"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <materialDesign:Card Grid.Row="0" 
+                         Background="{DynamicResource MaterialDesignCardBackground}">
+      <Label Content="Add new project" 
+             FontFamily="Arial Black" FontSize="30" 
+             HorizontalContentAlignment="Center" 
+             VerticalContentAlignment="Center" />
+    </materialDesign:Card>
+    <StackPanel Grid.Row="1">
+      <TextBox Name="projectName"        
+               HorizontalAlignment="Left" 
+               Text="{Binding ProjectName}"
+               materialDesign:HintAssist.Hint="Input project name"
+               Margin="10" 
+               TextWrapping="Wrap" 
+               VerticalAlignment="Top"/>
+      <TextBox Name="projectDescription" 
+               HorizontalAlignment="Left" 
+               Text="{Binding ProjectDescription}"
+               materialDesign:HintAssist.Hint="Add project description"
+               Margin="10" 
+               TextWrapping="Wrap" 
+               VerticalAlignment="Top"/>
+      <ComboBox Name="selectProcessModel" 
+                SelectedItem="{Binding SelectedProcessModel}" 
+                ItemsSource="{Binding ProcessModels}"
+                materialDesign:HintAssist.Hint="Select process model"
+                DisplayMemberPath="ProcessModelName" 
+                Margin="10" 
+                HorizontalAlignment="Left"/>
+      <ComboBox Name="selectEmployee" 
+                SelectedItem="{Binding SelectedEmployee}" 
+                ItemsSource="{Binding Employees}" 
+                materialDesign:HintAssist.Hint="Select project leader "
+                DisplayMemberPath="Name" 
+                Margin="10" 
+                HorizontalAlignment="Left"/>
+    </StackPanel>
+      <Button fa5:Awesome.Content="Regular_Save" 
+              Command="{Binding BtnSave}" 
+              Margin="10" 
+              HorizontalAlignment="Left" 
+              FontSize="25" 
+              Height="30" 
+              Width="30" 
+              Padding="0" 
+              RenderTransformOrigin="0.415,0"/>
+  </Grid>
+</UserControl>

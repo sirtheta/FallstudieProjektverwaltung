@@ -12,6 +12,7 @@ namespace Projektmanagement.MainClasses
     private string _eMail;
     private double _hourlyRate;
     private EmployeeRole _role;
+    private int _id;
 
     /// <summary>
     /// Represents an employee
@@ -24,6 +25,15 @@ namespace Projektmanagement.MainClasses
     /// <param name="role">role of employee</param>
     public Employee(string name, string eMail, double hourlyRate, EmployeeRole role)
     {
+      _name = name;
+      _eMail = eMail;
+      _hourlyRate = hourlyRate;
+      _role = role;
+    }
+
+    public Employee(int id, string name, string eMail, double hourlyRate, EmployeeRole role)
+    {
+      _id  = id;
       _name = name;
       _eMail = eMail;
       _hourlyRate = hourlyRate;
@@ -58,6 +68,16 @@ namespace Projektmanagement.MainClasses
 
       set {
         _hourlyRate = value;
+      }
+    }
+
+    public int Id {
+      get {
+        return _id;
+      }
+
+      set {
+        _id = value;
       }
     }
 

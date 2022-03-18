@@ -6,14 +6,18 @@ namespace Projektmanagement.MainClasses
   internal class Project
   {
     private string _projectName;
+    private string _projectDescription;
+    private Employee _projectLeader;
     private ProcessModel _pm;
     private List<Phase> _phases;
     private int _progress = 0;
 
 
-    public Project(string projectName, ProcessModel pm, bool randomProgress)
+    public Project(string projectName, string projectDescription, Employee projectLeader, ProcessModel pm, bool randomProgress = false)
     {
       _projectName = projectName;
+      _projectDescription = projectDescription;
+      ProjectLeader = projectLeader;
       _pm = pm;
       _phases = GeneratePhases();
       if (randomProgress) {
@@ -39,46 +43,62 @@ namespace Projektmanagement.MainClasses
         {
           _phases[i].Progress = (int)Math.Round(100 / (double)_phases[i].RndLength * progressLength);
           progressLength = 0;
-        }
-      
-      }
-      
+        }      
+      }      
     }
 
     private List<Phase> GeneratePhases()
     {
       if (_pm.PhaseNames.Count == 0) {
         return new List<Phase>();
-
       }
 
       List<Phase> tmpPhases = new List<Phase>();
 
       for (int i = 0; i < _pm.PhaseNames.Count; i++) {
         tmpPhases.Add(new Phase(_pm.PhaseNames[i]));
-
-
       }
       return tmpPhases;
     }
 
 
-    public string ProjectName => _projectName;
+    public string ProjectName {
+      get {
+        return _projectName;
+      }
+    }
 
     internal List<Phase> Phases {
       get {
         return _phases;
       }
-
     }
 
     public int Progress {
       get {
         return _progress;
       }
-
       set {
         _progress = value;
+      }
+    }
+
+    public string ProjectDescription {
+      get {
+        return _projectDescription;
+      }
+      set {
+        _projectDescription = value;
+      }
+    }
+
+    internal Employee ProjectLeader {
+      get {
+        return _projectLeader;
+      }
+
+      set {
+        _projectLeader = value;
       }
     }
   }

@@ -9,7 +9,7 @@ using Projektmanagement.MainClasses;
 
 namespace Projektmanagement.ViewModels
 {
-  internal class ProjectObjectViewModel:BaseViewModel
+  internal class ProjectObjectViewModel : BaseViewModel
   {
     private Project _project;
 
@@ -22,29 +22,41 @@ namespace Projektmanagement.ViewModels
       get {
         return _project.ProjectName;
       }
+    }
 
+    public string ProjectInfo {
+      get {
+        return _project.ProjectDescription;
+      }
+    }
+
+    public string ProjectLeader {
+      get {
+        return _project.ProjectLeader.Name;
+      }
     }
 
     public int Progress {
       get {
         return _project.Progress;
       }
-
       set {
         _project.Progress = value;
       }
     }
 
-    public ICommand ProjectObjectDoubleClickComand{
+
+    public ICommand ProjectObjectDoubleClickComand {
       get {
         return new RelayCommand<object>(ProjectObjectDoubleClick);
       }
     }
 
-    private void ProjectObjectDoubleClick(Object Parameter)
+    private void ProjectObjectDoubleClick(object obj)
     {
-
-      MainViewModel.GetInstance.SelectedViewModel = new PhaseViewModel(_project);
+      if (MainViewModel.GetInstance != null) {
+        MainViewModel.GetInstance.SelectedViewModel = new PhaseViewModel(_project);
+      }
     }
   }
 }

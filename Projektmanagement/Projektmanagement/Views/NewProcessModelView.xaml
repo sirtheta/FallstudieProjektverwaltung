@@ -18,17 +18,40 @@
       <ColumnDefinition Width="17*"></ColumnDefinition>
     </Grid.ColumnDefinitions>
     <StackPanel Grid.Column="1">
-      <Button fa5:Awesome.Content="Regular_Save" Command="{Binding BtnSave}"      Margin="0,10,0,0" HorizontalAlignment="Right" FontSize="25" Height="30" Width="30" Padding="0"/>
-      <Button fa5:Awesome.Content="Solid_Plus"   Command="{Binding BtnAddOne}"    Margin="0,10,0,0" HorizontalAlignment="Right" FontSize="25" Height="30" Width="30" Padding="0"/>
-      <Button fa5:Awesome.Content="Solid_Minus"  Command="{Binding BtnRemoveOne}" Margin="0,10,0,0" HorizontalAlignment="Right" FontSize="25" Height="30" Width="30" Padding="0"/>
+      <Button fa5:Awesome.Content="Regular_Save" 
+              Command="{Binding BtnSave}"     
+              Margin="0,10,0,0" 
+              HorizontalAlignment="Right" 
+              FontSize="25" Height="30" Width="30" 
+              Padding="0"/>
+      <Button fa5:Awesome.Content="Solid_Plus"   
+              Command="{Binding BtnAddOne}"    
+              Margin="0,10,0,0" 
+              HorizontalAlignment="Right" 
+              FontSize="25" Height="30" 
+              Width="30" 
+              Padding="0"/>
+      <Button fa5:Awesome.Content="Solid_Minus"  
+              Command="{Binding BtnRemoveOne}" 
+              Margin="0,10,0,0" 
+              HorizontalAlignment="Right" 
+              FontSize="25" Height="30" 
+              Width="30" 
+              Padding="0"/>
     </StackPanel>
     <ScrollViewer>
       <StackPanel>
-        <TextBox Text="{Binding Path=ProcessModelName}"  Margin="10,10,0,0" materialDesign:HintAssist.Hint="Process model name" HorizontalAlignment="Left"/>
+        <TextBox Text="{Binding Path=ProcessModelName}" 
+                 Margin="10,10,0,0" 
+                 materialDesign:HintAssist.Hint="Process model name" 
+                 HorizontalAlignment="Left"/>
         <ItemsControl ItemsSource="{Binding TextBoxCollection}">
           <ItemsControl.ItemTemplate>
             <DataTemplate>
-              <TextBox Text="{Binding Path=PhaseName}" Margin="10,0,0,0" materialDesign:HintAssist.Hint="Input phase name" HorizontalAlignment="Left"/>
+              <TextBox Text="{Binding Path=PhaseName}" 
+                       Margin="10,0,0,0" 
+                       materialDesign:HintAssist.Hint="Input phase name" 
+                       HorizontalAlignment="Left"/>
             </DataTemplate>
           </ItemsControl.ItemTemplate>
         </ItemsControl>
