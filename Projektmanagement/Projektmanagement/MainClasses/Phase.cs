@@ -38,5 +38,13 @@ namespace Projektmanagement.MainClasses
         _progress = value;
       }
     }
+    public string ProgressString 
+    {
+      get {
+        return $"{Progress}%";
+      }
+      set {
+      }
+    }
   }
 }

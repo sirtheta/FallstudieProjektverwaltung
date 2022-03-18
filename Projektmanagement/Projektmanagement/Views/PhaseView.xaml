@@ -11,37 +11,40 @@
              Background="{DynamicResource MaterialDesignPaper}"
              d:DesignWidth="750"
              d:DesignHeight="450">
-  <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="62"/>
-      <RowDefinition Height="*"/>
-    </Grid.RowDefinitions>
-    <materialDesign:Card Grid.Row="0" Background="{DynamicResource MaterialDesignCardBackground}">
-      <Label Content="{Binding ProjectName}" FontFamily="Arial Black" FontSize="30" HorizontalContentAlignment="Center" />
-    </materialDesign:Card>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="62"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Grid.Row="0" Background="{DynamicResource MaterialDesignCardBackground}">
+            <Label Content="{Binding ProjectName}" FontFamily="Arial Black" FontSize="30" HorizontalContentAlignment="Center" />
+        </materialDesign:Card>
 
-    <ScrollViewer HorizontalScrollBarVisibility="Visible"  VerticalScrollBarVisibility="Disabled" PanningMode="HorizontalOnly" Grid.Row="1">
-      <ItemsControl ItemsSource="{Binding PhaseCollection}" Grid.Row="1">
-        <ItemsControl.ItemsPanel>
-          <ItemsPanelTemplate>
-            <StackPanel Orientation="Horizontal"/>
-          </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
-        <ItemsControl.ItemTemplate>
-          <DataTemplate>
-            <StackPanel>
-              <Border CornerRadius="5" Margin="10,10,5,15" MaxHeight="150" Height="100" Width="{Binding RndLength}" Background="{DynamicResource MaterialDesignDarkBackground}">
-                <Border.Effect>
-                  <DropShadowEffect Color="{DynamicResource MaterialDesignShadow}"/>
-                </Border.Effect>
-                <Label Content="{Binding PhaseName}" Margin="10" Foreground="{DynamicResource MaterialDesignPaper}" HorizontalContentAlignment="Center"/>
-              </Border>
-              <ProgressBar  Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Stretch" Height="20" Margin="10,2,10,2" Value="{Binding Path=Progress}" BorderBrush="Black" Background="Black" Foreground="LightGreen" >
-              </ProgressBar>
-            </StackPanel>
-          </DataTemplate>
-        </ItemsControl.ItemTemplate>
-      </ItemsControl>
-    </ScrollViewer>
-  </Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Visible"  VerticalScrollBarVisibility="Disabled" PanningMode="HorizontalOnly" Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding PhaseCollection}" Grid.Row="1">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Border CornerRadius="5" Margin="10,10,5,15" MaxHeight="150" Height="100" Width="{Binding RndLength}" Background="{DynamicResource MaterialDesignDarkBackground}">
+                                <Border.Effect>
+                                    <DropShadowEffect Color="{DynamicResource MaterialDesignShadow}"/>
+                                </Border.Effect>
+                                <Label Content="{Binding PhaseName}" Margin="10" Foreground="{DynamicResource MaterialDesignPaper}" HorizontalContentAlignment="Center"/>
+                            </Border>
+                            <ProgressBar Name="PhaseProgressBar" Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Stretch" Height="20" Margin="10,2,10,2" Value="{Binding Path=Progress}" BorderBrush="Black" Background="Black" Foreground="LightGreen" >
+                            </ProgressBar>
+                            <TextBlock Text="{Binding ElementName=PhaseProgressBar, Path=Value, StringFormat={}{0:0}%}" 
+           HorizontalAlignment="Center" 
+           VerticalAlignment="Center" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
 </UserControl>

@@ -18,7 +18,7 @@ namespace Projektmanagement.ViewModels
       ProcessModel testPM = new ProcessModel("Test", new List<string> { "Initialize", "Planning", "Execution", "End" });
       for (int i = 0; i < 20; i++) {
 
-        Projects.Add(new Project($"Test Projekt {i + 1}",testPM));
+        Projects.Add(new Project($"Test Projekt {i + 1}", testPM, true));
       }
     }
 

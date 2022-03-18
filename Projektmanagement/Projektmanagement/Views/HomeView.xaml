@@ -28,7 +28,7 @@
             <StackPanel Grid.Column="1" Grid.Row="2" Name="ProjectStackpanel">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type local:ProjectObjectView}">
-                        <Setter Property="Margin" Value="5,10,5,0"/>
+                        <Setter Property="Margin" Value="10,10,10,0"/>
                     </Style>
                 </StackPanel.Resources>
                

@@ -13,18 +13,25 @@
              d:DataContext="{d:DesignInstance Type=vm:ProjectObjectViewModel}" >
 
     <Border Name="MainBorder" BorderBrush="#FF000000"  BorderThickness="2" CornerRadius="8" MouseEnter="Border_MouseEnter">
-        <Border.Effect>
-            <DropShadowEffect Color="LightGray"/>
-        </Border.Effect>
         <Border.InputBindings>
             <MouseBinding Gesture="LeftDoubleClick" Command="{Binding ProjectObjectDoubleClickComand}" />
         </Border.InputBindings>
         <Border.Style>
             <Style>
-                <Setter  Property="Border.Background" Value="{DynamicResource MaterialDesignCardBackground}"/>
+                <Setter  Property="Border.Background" Value="{DynamicResource MaterialDesignSelection}"/>
+                <Setter Property="Border.Effect">
+                    <Setter.Value>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" BlurRadius="10"/>
+                    </Setter.Value>
+                </Setter>
                 <Style.Triggers>
                     <Trigger Property="Border.IsMouseOver" Value="true">
-                        <Setter Property="Border.Background" Value="{DynamicResource MaterialDesignSelection}"/>
+                        <Setter Property="Border.Background" Value="{DynamicResource MaterialDesignCardBackground}"/>
+                        <Setter Property="Border.Effect">
+                            <Setter.Value>
+                                <DropShadowEffect Color="Black" ShadowDepth="10" BlurRadius="17"/>
+                            </Setter.Value>
+                        </Setter>
                     </Trigger>
                 </Style.Triggers>
             </Style>
@@ -32,7 +39,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -44,9 +51,10 @@
             <ProgressBar  Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Stretch" Height="20" 
                           Margin="10,2,10,2" Value="{Binding Path=Progress}" BorderBrush="Black" Background="Black" Foreground="LightGreen" >
             </ProgressBar>
+            <Label Grid.Column="1" Grid.Row="0" Content="{Binding Path=ProjectName}" x:Name="Title" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontWeight="Bold" FontSize="15" />
+            <Label Grid.Column="0" Grid.Row="1" Content="Info about Project" x:Name="Info" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-            <Label Grid.Column="1" Grid.Row="0" Content="{Binding Path=ProjectName}" x:Name="Title" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontWeight="Bold" FontSize="15" />
-            <Label Grid.Column="0" Grid.Row="1" Content="Info about Project" x:Name="Info" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
             <Button Grid.Column="1" Grid.Row="3" fa5:Awesome.Content="Regular_ArrowAltCircleDown" Command=""  HorizontalAlignment="Center" FontSize="15" Background="Transparent" BorderBrush="Transparent" />
         </Grid>
     </Border>

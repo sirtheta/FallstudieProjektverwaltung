@@ -12,13 +12,10 @@ namespace Projektmanagement.ViewModels
   internal class ProjectObjectViewModel:BaseViewModel
   {
     private Project _project;
-    private int _progress;
 
     public ProjectObjectViewModel(Project project)
     {
       _project = project;
-      Random rnd = new Random();
-      _progress = rnd.Next(50);
     }
 
     public string ProjectName {
@@ -30,11 +27,11 @@ namespace Projektmanagement.ViewModels
 
     public int Progress {
       get {
-        return _progress;
+        return _project.Progress;
       }
 
       set {
-        _progress = value;
+        _project.Progress = value;
       }
     }
 
