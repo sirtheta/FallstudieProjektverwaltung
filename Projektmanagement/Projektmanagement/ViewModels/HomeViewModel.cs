@@ -20,7 +20,7 @@ namespace Projektmanagement.ViewModels
       ProcessModel testPM = new ProcessModel("Test", new List<string> { "Initialize", "Planning", "Execution", "End" });
       for (int i = 0; i < 20; i++) {
 
-        Projects.Add(new Project($"Test Projekt {i + 1}", "Info about Project", new Employee("Gerhard Schröder", "gh@sh.de", 95, EmployeeRole.Projectmanager), testPM,  true));
+        Projects.Add(new Project($"Test Projekt {i + 1}", "Info about Project", new Employee("Sascha Dubois", "sa@du.ch", 95, EmployeeRole.Projectmanager), testPM,  true));
       }
     }
 

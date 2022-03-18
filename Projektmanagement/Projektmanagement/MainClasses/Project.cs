@@ -17,7 +17,7 @@ namespace Projektmanagement.MainClasses
     {
       _projectName = projectName;
       _projectDescription = projectDescription;
-      ProjectLeader = projectLeader;
+      _projectLeader = projectLeader;
       _pm = pm;
       _phases = GeneratePhases();
       if (randomProgress) {
