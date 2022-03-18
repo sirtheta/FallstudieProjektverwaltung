@@ -37,25 +37,20 @@
             </Style>
         </Border.Style>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <ProgressBar  Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Stretch" Height="20" 
+            <ProgressBar Grid.Row="2" VerticalAlignment="Stretch" Height="20" 
                           Margin="10,2,10,2" Value="{Binding Path=Progress}" BorderBrush="Black" Background="Black" Foreground="LightGreen" >
             </ProgressBar>
-            <Label Grid.Column="1" Grid.Row="0" Content="{Binding Path=ProjectName}" x:Name="Title" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontWeight="Bold" FontSize="15" />
-            <Label Grid.Column="0" Grid.Row="1" Content="Info about Project" x:Name="Info" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label  Grid.Row="0"  Content="{Binding Path=ProjectName}" x:Name="Title" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontWeight="Bold" FontSize="15" />
+            <Label  Grid.Row="1" Content="Info about Project" x:Name="Info" HorizontalContentAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
 
-            <Button Grid.Column="1" Grid.Row="3" fa5:Awesome.Content="Regular_ArrowAltCircleDown" Command=""  HorizontalAlignment="Center" FontSize="15" Background="Transparent" BorderBrush="Transparent" />
+            <Button Grid.Row="3" fa5:Awesome.Content="Regular_ArrowAltCircleDown" Command=""  HorizontalAlignment="Center" FontSize="15" Background="Transparent" BorderBrush="Transparent" />
         </Grid>
     </Border>
 
